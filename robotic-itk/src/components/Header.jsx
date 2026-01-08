@@ -7,9 +7,9 @@ const Header = () => {
         <header className="bg-white sticky top-0 z-50 shadow-sm">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                 <div className="flex items-center space-x-2">
-                    {/* Logo Placeholder - Robotic ITK */}
+                    {/* Logo - Robotic ITK */}
                     <div className="font-bold text-xl flex items-center">
-                        <span className="text-[#FFCC00] mr-2">⚡</span>
+                        <img src="/src/logo/logo.png" alt="Logo" className="w-14 h-14 mr-2 object-contain" />
                         <span className="text-black">ROBOTIC ITK</span>
                     </div>
                 </div>
