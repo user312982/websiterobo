@@ -8,6 +8,21 @@ import Community from './components/Community';
 import Footer from './components/Footer';
 
 function App() {
+  React.useEffect(() => {
+    // Force scroll to top on manual reload
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Clear any hash in URL to prevent browser jumping to anchors
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname);
+    }
+
+    // Scroll to top immediately
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />

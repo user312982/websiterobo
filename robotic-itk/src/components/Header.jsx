@@ -1,25 +1,40 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="bg-white sticky top-0 z-50 shadow-sm">
+        <motion.header
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-gray-100"
+        >
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                 <div className="flex items-center space-x-2">
                     {/* Logo - Robotic ITK */}
-                    <div className="font-bold text-xl flex items-center">
+                    {/* Logo - Robotic ITK */}
+                    <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="font-bold text-xl flex items-center cursor-pointer">
                         <img src="/src/logo/logo.png" alt="Logo" className="w-14 h-14 mr-2 object-contain" />
-                        <span className="text-black">ROBOTIC ITK</span>
-                    </div>
+                        <span className="text-black tracking-wider">ROBOTIC ITK</span>
+                    </a>
                 </div>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex space-x-8 text-sm font-semibold text-gray-800">
-                    <a href="#about" className="hover:text-[#003311] transition-colors">ABOUT</a>
-                    <a href="#what-we-do" className="hover:text-[#003311] transition-colors">WHAT WE DO</a>
-                    <a href="#our-team" className="hover:text-[#003311] transition-colors">OUR TEAM</a>
-                    <a href="#join-us" className="hover:text-[#003311] transition-colors">JOIN US</a>
+                    {['ABOUT', 'WHAT WE DO', 'OUR TEAM', 'JOIN US'].map((item) => (
+                        <motion.a
+                            key={item}
+                            href={`#${item.toLowerCase().replace(/ /g, '-')}`}
+                            className="relative group py-1"
+                            whileHover={{ scale: 1.05, color: '#003311' }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {item}
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFCC00] transition-all duration-300 group-hover:w-full"></span>
+                        </motion.a>
+                    ))}
                 </nav>
 
                 {/* CTA Button */}
@@ -51,7 +66,7 @@ const Header = () => {
                     <a href="#get-started" className="bg-[#FFCC00] text-black px-6 py-2 rounded font-bold text-center" onClick={() => setIsMenuOpen(false)}>GET STARTED</a>
                 </div>
             )}
-        </header>
+        </motion.header>
     );
 };
 

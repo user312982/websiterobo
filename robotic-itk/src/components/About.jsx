@@ -1,19 +1,32 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const About = () => {
     return (
-        <section id="about" className="bg-white py-16 md:py-24">
+        <section id="about" className="bg-white py-16 md:py-24 overflow-hidden">
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-                <div className="md:w-1/2 order-2 md:order-1">
+                <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="md:w-1/2 order-2 md:order-1"
+                >
                     {/* Image Placeholder */}
                     <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
                         <div className="bg-gray-200 w-full h-80 flex items-center justify-center">
                             <span className="text-gray-400 font-bold text-xl">Team Photo Placeholder</span>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="md:w-1/2 order-1 md:order-2">
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="md:w-1/2 order-1 md:order-2"
+                >
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black border-l-4 border-[#FFCC00] pl-4">
                         Who Are We?
                     </h2>
@@ -23,7 +36,7 @@ const About = () => {
                     <p className="text-gray-700 text-lg leading-relaxed">
                         Our mission is to inspire the next generation of engineers and problem-solvers through hands-on robotics experience, fostering creativity, technical skills, and teamwork.
                     </p>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
