@@ -3,7 +3,7 @@ name: cd
 on:
   push:
     branches:
-      - gouhund_vps
+      - gouhund-vps
 
 jobs:
   cd:
@@ -20,7 +20,7 @@ jobs:
           port: 22
           script: |
             cd /home/gouhund/composes/robotik/websiterobo
-            git checkout gouhund_vps
-            git pull origin gouhund_vps
+            git checkout gouhund-vps
+            git pull origin gouhund-vps
             docker compose up -d --build
 
