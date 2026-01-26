@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import GalleryPage from './pages/GalleryPage';
 import DepartmentsPage from './pages/DepartmentsPage';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -87,6 +88,7 @@ function App() {
                             <ActivitiesNew />
                         </main>
                     } />
+                    <Route path="/gallery" element={<GalleryPage />} />
                     <Route path="/departments" element={<DepartmentsPage />} />
                     <Route path="/department/:id" element={<DepartmentDetail />} />
                 </Routes>
