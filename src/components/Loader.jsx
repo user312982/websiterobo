@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import Logo from '/src/logo/logo.png';
 
 const Loader = ({ onLoadingComplete }) => {
     const [count, setCount] = useState(0);
@@ -51,7 +52,7 @@ const Loader = ({ onLoadingComplete }) => {
                     transition={{ duration: 2, times: [0, 0.5, 1], repeat: Infinity }}
                     className="mb-12"
                 >
-                    <img src="/src/logo/logo.png" alt="Logo" className="w-24 h-24 object-contain" />
+                    <img src={Logo} alt="Logo" className="w-24 h-24 object-contain" />
                 </motion.div>
 
                 {/* Massive Lusion-style Counter */}

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import Logo from '/src/logo/logo.png';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -40,7 +41,7 @@ const Header = () => {
                     <div className="relative">
                         <div className="absolute inset-0 bg-[#FFCC00] blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
                         <img
-                            src="/src/logo/logo.png"
+                            src={Logo}
                             alt="Logo"
                             className="relative w-12 h-12 md:w-14 md:h-14 object-contain transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500"
                         />

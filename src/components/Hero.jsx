@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
+import Logo from '/src/logo/logo.png';
 
 const Hero = () => {
     const { scrollY } = useScroll();
@@ -132,7 +132,7 @@ const Hero = () => {
                         {/* The Logo with strong drop shadow for depth */}
                         <div className="absolute inset-0 flex items-center justify-center p-12" style={{ transform: "translateZ(80px)" }}>
                             <img
-                                src="/src/logo/logo.png"
+                                src={Logo}
                                 alt="Robotic ITK Logo"
                                 className="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(255,204,0,0.4)]"
                             />
