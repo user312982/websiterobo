@@ -7,7 +7,10 @@ const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
+        const handleScroll = () => {
+            // Trigger after scrolling past most of the Hero section
+            setScrolled(window.scrollY > window.innerHeight - 100);
+        };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -28,9 +31,10 @@ const Header = () => {
             <motion.header
                 className={`fixed top-0 left-0 right-0 z-[60] flex justify-between items-center px-6 md:px-8 lg:px-16 py-6 transition-all duration-500`}
                 style={{
-                    backgroundColor: scrolled ? 'rgba(255, 204, 0, 0.15)' : 'transparent', // Yellow Tint Glass
+                    backgroundColor: scrolled ? 'rgba(255, 204, 0, 0.15)' : 'transparent', // Golden Blur
                     backdropFilter: scrolled ? 'blur(12px)' : 'none',
                     borderBottom: scrolled ? '1px solid rgba(255, 204, 0, 0.3)' : '1px solid transparent',
+                    boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.5)' : 'none',
                 }}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
@@ -48,11 +52,9 @@ const Header = () => {
                     </div>
                     <div className="flex flex-col">
                         <span className="font-rajdhani font-bold text-xl md:text-2xl tracking-widest text-white leading-none group-hover:text-[#FFCC00] transition-colors duration-300">
-                            ROBOTIC
+                            ROBOTIK <span className="text-[#FFCC00]">ITK</span>
                         </span>
-                        <span className="font-mono text-[10px] md:text-xs text-[#FFCC00] tracking-[0.2em] md:tracking-[0.3em] font-semibold">
-                            INSTITUT TEKNOLOGI KALIMANTAN
-                        </span>
+
                     </div>
                 </a>
 

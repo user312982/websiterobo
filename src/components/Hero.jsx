@@ -1,10 +1,15 @@
+import React from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
 import Logo from '/src/logo/logo.png';
+import HeroBackground3D from './HeroBackground3D';
 
 const Hero = () => {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 500], [0, 200]);
     const logoY = useTransform(scrollY, [0, 500], [0, 100]);
+
+    // Fade to black overlay opacity based on scroll
+    const overlayOpacity = useTransform(scrollY, [0, window.innerHeight], [0, 0.9]);
 
     // 3D Tilt Effect for Logo
     const x = useMotionValue(0);
@@ -36,26 +41,9 @@ const Hero = () => {
     return (
         <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden perspective-[1000px]">
             {/* Alive Background Elements */}
-            <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                    x: [0, 50, 0],
-                    y: [0, -50, 0]
-                }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute top-0 right-0 w-[80vw] md:w-[60vw] h-[60vh] md:h-[80vh] bg-gradient-to-b from-[#003311]/30 to-transparent blur-[80px] md:blur-[120px] pointer-events-none rounded-full"
-            />
-            <motion.div
-                animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                    x: [0, -30, 0],
-                    y: [0, 30, 0]
-                }}
-                transition={{ duration: 18, repeat: Infinity, ease: "linear", delay: 2 }}
-                className="absolute bottom-0 left-0 w-[80vw] md:w-[50vw] h-[50vh] md:h-[70vh] bg-gradient-to-t from-[#FFCC00]/10 to-transparent blur-[60px] md:blur-[100px] pointer-events-none rounded-full"
-            />
+            {/* 3D Background */}
+            <HeroBackground3D />
+
 
             <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-4 items-center">
                 {/* Text Content */}
@@ -154,6 +142,11 @@ const Hero = () => {
                     </motion.div>
                 </motion.div>
             </div>
+            {/* Scroll Dark Overlay */}
+            <motion.div
+                className="absolute inset-0 bg-black z-20 pointer-events-none"
+                style={{ opacity: overlayOpacity }}
+            />
         </section>
     );
 };
