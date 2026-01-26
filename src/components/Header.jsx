@@ -1,19 +1,35 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '/src/logo/logo.png';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
+
+    // Check if we are on the Home Page
+    const isHome = location.pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => {
-            // Trigger after scrolling past most of the Hero section
-            setScrolled(window.scrollY > window.innerHeight - 100);
+            // Only use scroll trigger on Home page
+            if (isHome) {
+                setScrolled(window.scrollY > window.innerHeight - 100);
+            }
         };
-        window.addEventListener('scroll', handleScroll);
+
+        // If not home, always be "scrolled" (Glass style)
+        if (!isHome) {
+            setScrolled(true);
+        } else {
+            // Reset check on Home
+            setScrolled(window.scrollY > window.innerHeight - 100);
+            window.addEventListener('scroll', handleScroll);
+        }
+
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isHome, location.pathname]);
 
     // Lock body scroll when menu is open
     useEffect(() => {
@@ -24,7 +40,25 @@ const Header = () => {
         }
     }, [menuOpen]);
 
-    const links = ['About', 'Departments', 'Activities', 'Contact'];
+    const handleNavClick = (path) => {
+        setMenuOpen(false);
+        // If we are already on the target page (ignoring hash), scroll to top
+        // Or if it's a hash link on the same page, typical behavior is handled by browser/router, 
+        // but if user wants "paling atas" (top) for pages:
+
+        if (path === location.pathname) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Special case: If path has hash, allow default behavior or handle hash scroll inside useEffect in App
+    };
+
+    const links = [
+        { name: 'About', path: '/#about' },
+        { name: 'Departments', path: '/departments' },
+        { name: 'Activities', path: '/#activities' },
+        { name: 'Contact', path: '/#contact' }
+    ];
 
     return (
         <>
@@ -40,36 +74,42 @@ const Header = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-                {/* Logo Section */}
-                <a href="#" className="flex items-center gap-4 group relative z-[70]">
-                    <div className="relative">
-                        <div className="absolute inset-0 bg-[#FFCC00] blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
-                        <img
-                            src={Logo}
-                            alt="Logo"
-                            className="relative w-12 h-12 md:w-14 md:h-14 object-contain transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500"
-                        />
+                {/* Logo Area */}
+                <Link
+                    to="/"
+                    className="relative z-[70] group"
+                    onClick={() => handleNavClick('/')}
+                >
+                    <div className="flex items-center gap-4">
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-[#FFCC00] blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
+                            <img
+                                src={Logo}
+                                alt="Logo"
+                                className="relative w-12 h-12 md:w-14 md:h-14 object-contain transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500"
+                            />
+                        </div>
+                        <div className="flex flex-col leading-none">
+                            <span className="font-rajdhani font-bold text-xl md:text-2xl tracking-widest text-white leading-none group-hover:text-[#FFCC00] transition-colors duration-300">
+                                ROBOTIK <span className="text-[#FFCC00]">ITK</span>
+                            </span>
+                        </div>
                     </div>
-                    <div className="flex flex-col">
-                        <span className="font-rajdhani font-bold text-xl md:text-2xl tracking-widest text-white leading-none group-hover:text-[#FFCC00] transition-colors duration-300">
-                            ROBOTIK <span className="text-[#FFCC00]">ITK</span>
-                        </span>
+                </Link>
 
-                    </div>
-                </a>
-
-                {/* Desktop Navigation */}
+                {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center gap-1">
-                    {links.map((link) => (
-                        <a
-                            key={link}
-                            href={`#${link.toLowerCase()}`}
+                    {links.map((link, i) => (
+                        <Link
+                            key={i}
+                            to={link.path}
+                            onClick={() => handleNavClick(link.path)}
                             className={`relative px-6 py-2 text-sm uppercase tracking-widest transition-all duration-300 group overflow-hidden rounded-full ${scrolled ? 'text-white hover:text-black' : 'text-[#88998C] hover:text-black'}`}
                         >
-                            <span className="relative z-10 font-bold">{link}</span>
+                            <span className="relative z-10 font-bold">{link.name}</span>
                             {/* Yellow background hover effect */}
                             <span className="absolute inset-0 bg-[#FFCC00] transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
-                        </a>
+                        </Link>
                     ))}
                 </nav>
 
@@ -121,17 +161,20 @@ const Header = () => {
 
                         <div className="flex flex-col gap-8 text-center relative z-10">
                             {links.map((link, index) => (
-                                <motion.a
-                                    key={link}
-                                    href={`#${link.toLowerCase()}`}
-                                    onClick={() => setMenuOpen(false)}
-                                    initial={{ opacity: 0, y: 50 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
-                                    className="text-4xl font-bold text-white uppercase tracking-widest hover:text-[#FFCC00] transition-colors font-rajdhani"
+                                <Link
+                                    key={index}
+                                    to={link.path}
+                                    onClick={() => handleNavClick(link.path)}
                                 >
-                                    {link}
-                                </motion.a>
+                                    <motion.span
+                                        initial={{ opacity: 0, y: 50 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
+                                        className="text-4xl font-bold text-white uppercase tracking-widest hover:text-[#FFCC00] transition-colors font-rajdhani block"
+                                    >
+                                        {link.name}
+                                    </motion.span>
+                                </Link>
                             ))}
                             <motion.button
                                 initial={{ opacity: 0, scale: 0.8 }}
