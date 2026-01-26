@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; // Use Link for navigation
-import { depts } from '../data/departments'; // Import shared data
+import { Link } from 'react-router-dom';
+import { depts } from '../data/departments';
 
 const DepartmentsNew = () => {
-    // Removed selectedDept state as we now navigate to a new page
-
     return (
         <section id="departments" className="py-20 md:py-40 px-6 md:px-16 bg-[#050806] relative">
             <div className="max-w-7xl mx-auto">

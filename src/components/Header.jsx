@@ -54,7 +54,7 @@ const Header = () => {
     };
 
     const links = [
-        { name: 'About', path: '/#about' },
+        { name: 'Gallery', path: '/gallery' },
         { name: 'Departments', path: '/departments' },
         { name: 'Activities', path: '/#activities' },
         { name: 'Contact', path: '/#contact' }
@@ -84,8 +84,7 @@ const Header = () => {
                         <div className="relative">
                             <div className="absolute inset-0 bg-[#FFCC00] blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
                             <img
-                                src={Logo}
-                                alt="Logo"
+                                src={Logo}  
                                 className="relative w-12 h-12 md:w-14 md:h-14 object-contain transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500"
                             />
                         </div>
