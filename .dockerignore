@@ -7,5 +7,5 @@ README.md
 dist
 .vscode
 .idea
-*log
+.log
 .DS_Store
