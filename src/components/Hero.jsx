@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
-import Logo from '/src/logo/logo.png';
+import Logo from '/src/logo/logo.webp';
 import HeroBackground3D from './HeroBackground3D';
 
 const Hero = () => {

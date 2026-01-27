@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import Logo from '/src/logo/logo.png';
+import Logo from '/src/logo/logo.webp';
 
 const Loader = ({ onLoadingComplete }) => {
     const [count, setCount] = useState(0);
