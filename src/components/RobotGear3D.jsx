@@ -41,7 +41,7 @@ function Gear({ isHovered }) {
 
 // The bear logo (foreground) - uses the actual PNG
 function BearLogo() {
-    const texture = useLoader(THREE.TextureLoader, '/src/logo/logo.png');
+    const texture = useLoader(THREE.TextureLoader, '/src/logo/logo.webp');
 
     return (
         <mesh position={[0, 0, 0.1]}>
