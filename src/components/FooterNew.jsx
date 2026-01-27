@@ -55,7 +55,7 @@ const FooterNew = () => {
                             </div>
                         </div>
                         <p className="text-black/60 text-sm mt-12 md:mt-0">
-                            &copy; 2025 Robotic ITK.
+                            &copy; 2026 Robotic ITK.
                         </p>
                     </div>
                 </div>
