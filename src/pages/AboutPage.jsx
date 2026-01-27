@@ -61,6 +61,40 @@ const AboutPage = () => {
                     </motion.div>
                 </div>
 
+                {/* Achievement Gallery */}
+                <div className="mb-32">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-3xl font-bold text-center text-white mb-16 uppercase tracking-wider"
+                    >
+                        Our Achievements
+                    </motion.h2>
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <motion.div whileHover={{ y: -5 }} className="bg-[#111] p-6 border border-white/10 rounded-lg text-center">
+                            <div className="text-4xl font-bold text-[#FFCC00] mb-2">2018</div>
+                            <h3 className="text-white font-bold mb-2">Finalis KRTI</h3>
+                            <p className="text-sm text-[#88998C]">Divisi Racing Plane & VTOL</p>
+                        </motion.div>
+                        <motion.div whileHover={{ y: -5 }} className="bg-[#111] p-6 border border-white/10 rounded-lg text-center">
+                            <div className="text-4xl font-bold text-[#FFCC00] mb-2">2019</div>
+                            <h3 className="text-white font-bold mb-2">Peserta Nasional</h3>
+                            <p className="text-sm text-[#88998C]">Kontes Robot Terbang Indonesia</p>
+                        </motion.div>
+                        <motion.div whileHover={{ y: -5 }} className="bg-[#111] p-6 border border-white/10 rounded-lg text-center">
+                            <div className="text-4xl font-bold text-[#FFCC00] mb-2">2020</div>
+                            <h3 className="text-white font-bold mb-2">Juara Harapan</h3>
+                            <p className="text-sm text-[#88998C]">KRI Wilayah II</p>
+                        </motion.div>
+                        <motion.div whileHover={{ y: -5 }} className="bg-[#111] p-6 border border-white/10 rounded-lg text-center">
+                            <div className="text-4xl font-bold text-[#FFCC00] mb-2">2023</div>
+                            <h3 className="text-white font-bold mb-2">Best Design</h3>
+                            <p className="text-sm text-[#88998C]">Kontes Robot SAR Indonesia</p>
+                        </motion.div>
+                    </div>
+                </div>
+
                 {/* Divisions / Asmawarman Section */}
                 <div className="mb-32">
                     <motion.h2
@@ -120,6 +154,42 @@ const AboutPage = () => {
                     </div>
                 </div>
 
+                {/* Activities Section */}
+                <div className="mb-32">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-3xl font-bold text-center text-white mb-16 uppercase tracking-wider"
+                    >
+                        What We Do
+                    </motion.h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div className="bg-[#111] p-8 rounded-lg border border-white/5">
+                            <h3 className="text-xl font-bold text-white mb-4">Workshops & Training</h3>
+                            <p className="text-[#88998C] mb-4">
+                                Kami rutin mengadakan pelatihan internal dan eksternal, seperti Workshop "Line Follower Using Arduino" untuk mengenalkan dasar-dasar robotika kepada mahasiswa baru dan masyarakat umum.
+                            </p>
+                            <ul className="list-disc list-inside text-[#88998C] text-sm">
+                                <li>Basic Electronics & Microcontroller</li>
+                                <li>Mechanics & 3D Design</li>
+                                <li>Programming (C++, Python)</li>
+                            </ul>
+                        </div>
+                        <div className="bg-[#111] p-8 rounded-lg border border-white/5">
+                            <h3 className="text-xl font-bold text-white mb-4">Competition & Research</h3>
+                            <p className="text-[#88998C] mb-4">
+                                Kegiatan inti kami adalah riset untuk kompetisi nasional. Anggota tim menghabiskan waktu berbulan-bulan untuk mendesain, merakit, dan memprogram robot yang tangguh.
+                            </p>
+                            <ul className="list-disc list-inside text-[#88998C] text-sm">
+                                <li>Kontes Robot Indonesia (KRI)</li>
+                                <li>Kontes Robot Terbang Indonesia (KRTI)</li>
+                                <li>Innovation Challenges</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Vision Mission */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                     <div className="p-8 border-l-2 border-[#FFCC00] bg-[#FFCC00]/5">
@@ -135,6 +205,32 @@ const AboutPage = () => {
                             <li>Berpartisipasi aktif dan berprestasi dalam kompetisi tingkat nasional dan internasional.</li>
                             <li>Melakukan riset dan pengabdian masyarakat berbasis teknologi tepat guna.</li>
                         </ul>
+                    </div>
+                </div>
+
+                {/* Organizational Structure Placeholder */}
+                <div className="mb-32 text-center">
+                    <h2 className="text-3xl font-bold text-white mb-8 uppercase tracking-wider">
+                        Leadership
+                    </h2>
+                    <div className="inline-block p-8 border border-[#FFCC00]/30 rounded-lg bg-[#FFCC00]/5 max-w-2xl">
+                        <p className="text-[#88998C] italic">
+                            "Struktur organisasi kami dirancang untuk efisiensi dan inovasi."
+                        </p>
+                        <div className="mt-6 grid grid-cols-3 gap-4 text-sm">
+                            <div className="flex flex-col items-center">
+                                <div className="w-16 h-16 bg-[#222] rounded-full mb-2 flex items-center justify-center text-[#FFCC00] font-bold">K</div>
+                                <span className="text-white font-bold">Ketua</span>
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <div className="w-16 h-16 bg-[#222] rounded-full mb-2 flex items-center justify-center text-[#FFCC00] font-bold">W</div>
+                                <span className="text-white font-bold">Wakil</span>
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <div className="w-16 h-16 bg-[#222] rounded-full mb-2 flex items-center justify-center text-[#FFCC00] font-bold">S</div>
+                                <span className="text-white font-bold">Sekretaris</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
