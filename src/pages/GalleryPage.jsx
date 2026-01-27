@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const GalleryPage = () => {
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     // Reverted to placeholder/abstract style, removing specific Unsplash images.
     // "Code Matrix" is now 'wide'.
     const galleryItems = [

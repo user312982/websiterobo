@@ -1,9 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { depts } from '../data/departments';
+import PageTransition from '../components/PageTransition';
 
 const DepartmentDetail = () => {
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const { id } = useParams();
     const navigate = useNavigate();
     const dept = depts.find((d) => d.id === id);
@@ -32,7 +37,7 @@ const DepartmentDetail = () => {
     }
 
     return (
-        <React.Fragment>
+        <PageTransition color={dept.themeColor}>
             {/* 
               Outer Container: Very tall to enable scrolling. 
               The content inside will be Sticky. 
@@ -48,7 +53,7 @@ const DepartmentDetail = () => {
                         <motion.button
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2 }}
+                            transition={{ delay: 0.8 }}
                             onClick={() => navigate('/departments')}
                             className="group flex items-center gap-2 text-sm font-bold text-white hover:text-[#FFCC00] transition-colors uppercase tracking-widest mb-8"
                         >
@@ -61,7 +66,7 @@ const DepartmentDetail = () => {
                         <motion.span
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
+                            transition={{ delay: 0.9 }}
                             className="text-[#FFCC00] font-mono text-sm mb-4 block"
                         >
                             /{dept.id}
@@ -69,8 +74,10 @@ const DepartmentDetail = () => {
 
                         {/* Shared Element Title */}
                         <motion.h2
-                            layoutId={`dept-title-${dept.id}`}
                             className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 1 }}
                         >
                             {dept.name}
                         </motion.h2>
@@ -78,7 +85,7 @@ const DepartmentDetail = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
+                            transition={{ delay: 1.1 }}
                         >
                             <p className="text-[#88998C] text-lg leading-relaxed mb-8">
                                 {dept.desc}
@@ -108,7 +115,7 @@ const DepartmentDetail = () => {
                                     className="relative min-w-[300px] md:min-w-[400px] aspect-[3/4] group flex-shrink-0 perspective-[1000px]"
                                     initial={{ opacity: 0, x: 100 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.2 + (index * 0.1), duration: 0.5, ease: "backOut" }}
+                                    transition={{ delay: 1.2 + (index * 0.1), duration: 0.5, ease: "backOut" }}
                                 >
                                     {/* Card Content with 3D Hover */}
                                     <div className="w-full h-full bg-[#111] border border-white/10 overflow-hidden relative shadow-2xl transition-transform duration-500 group-hover:rotate-y-12 group-hover:scale-105">
@@ -157,7 +164,7 @@ const DepartmentDetail = () => {
                     <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-[#FFCC00] underline">Back to Top</button>
                 </div>
             </div>
-        </React.Fragment>
+        </PageTransition>
     );
 };
 
