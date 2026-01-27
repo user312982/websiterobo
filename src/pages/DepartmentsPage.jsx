@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { depts } from '../data/departments';
@@ -67,6 +67,10 @@ const CrestIcon = ({ type, className }) => {
 };
 
 const DepartmentsPage = () => {
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <section className="min-h-screen bg-[#050806] pt-32 px-6 md:px-16 pb-20 relative overflow-hidden">
             {/* Background Elements */}
