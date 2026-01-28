@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutNew from './components/AboutNew';
+import EventsHome from './components/EventsHome';
 import DepartmentsNew from './components/DepartmentsNew';
 import ActivitiesNew from './components/ActivitiesNew';
 import FooterNew from './components/FooterNew';
@@ -16,6 +17,7 @@ const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const DepartmentsPage = lazy(() => import('./pages/DepartmentsPage'));
 const DepartmentDetail = lazy(() => import('./pages/DepartmentDetail'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
+const EventsPage = lazy(() => import('./pages/EventsPage'));
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -86,14 +88,15 @@ function App() {
                             <main className="relative z-10">
                                 <Hero />
                                 <AboutNew />
+                                <EventsHome />
                                 <DepartmentsNew />
-                                <ActivitiesNew />
                             </main>
                         } />
                         <Route path="/gallery" element={<GalleryPage />} />
                         <Route path="/departments" element={<DepartmentsPage />} />
                         <Route path="/department/:id" element={<DepartmentDetail />} />
                         <Route path="/about" element={<AboutPage />} />
+                        <Route path="/events" element={<EventsPage />} />
                     </Routes>
                 </Suspense>
             </AnimatePresence>

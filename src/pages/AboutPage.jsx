@@ -51,12 +51,14 @@ const AboutPage = () => {
                         transition={{ duration: 0.8 }}
                         className="relative h-[400px] border border-[#FFCC00]/20 bg-[#FFCC00]/5 rounded-lg overflow-hidden group"
                     >
-                        {/* Placeholder for history image - using CSS pattern for now */}
-                        <div className="absolute inset-0 opacity-20"
-                            style={{ backgroundImage: 'radial-gradient(circle, #FFCC00 1px, transparent 1px)', backgroundSize: '20px 20px' }}
-                        />
+                        {/* Placeholder for history - SVG Icon */}
+                        <div className="absolute inset-0 bg-[#FFCC00]/5 flex items-center justify-center">
+                            <svg className="w-32 h-32 text-[#FFCC00]/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="font-rajdhani font-bold text-9xl text-[#FFCC00]/10">2014</span>
+                            <span className="font-rajdhani font-bold text-9xl text-[#FFCC00]/10 mix-blend-overlay">2014</span>
                         </div>
                     </motion.div>
                 </div>

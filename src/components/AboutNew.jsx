@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const AboutNew = () => {
     return (
@@ -37,6 +38,13 @@ const AboutNew = () => {
                                 <span className="block text-[#FFCC00] font-bold text-xl mb-1">Mission</span>
                                 <span className="text-sm text-[#88998C]">Research, Compete, Educate</span>
                             </div>
+                        </div>
+
+                        <div className="mt-10">
+                            <Link to="/about" className="inline-flex items-center gap-2 text-[#FFCC00] font-bold uppercase tracking-widest text-sm hover:text-white transition-colors group">
+                                Read Full Story
+                                <span className="w-8 h-[1px] bg-[#FFCC00] group-hover:w-12 transition-all" />
+                            </Link>
                         </div>
                     </div>
                 </motion.div>
