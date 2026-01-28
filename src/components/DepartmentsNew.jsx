@@ -18,7 +18,7 @@ const DepartmentsNew = () => {
                         <Link to={`/department/${dept.id}`} key={dept.id}>
                             <motion.div
                                 layoutId={`dept-container-${dept.id}`}
-                                className="group relative border-b border-white/10 py-12 md:py-16 cursor-pointer flex flex-col md:flex-row md:items-center justify-between transition-colors duration-500 hover:bg-white/[0.02]"
+                                className="group relative border-b border-white/10 py-12 md:py-16 cursor-pointer flex flex-col md:flex-row md:items-center justify-between transition-colors duration-500 hover:bg-white/2"
                             >
                                 <div className="flex items-baseline gap-8">
                                     <span className="text-sm font-mono text-[#88998C] group-hover:text-[#FFCC00] transition-colors">/{dept.id}</span>

@@ -70,7 +70,7 @@ const Header = () => {
     return (
         <>
             <motion.header
-                className={`fixed top-0 left-0 right-0 z-[60] flex justify-between items-center px-6 md:px-8 lg:px-16 py-6 transition-all duration-500`}
+                className={`fixed top-0 left-0 right-0 z-60 flex justify-between items-center px-6 md:px-8 lg:px-16 py-6 transition-all duration-500`}
                 style={{
                     backgroundColor: scrolled ? 'rgba(255, 204, 0, 0.15)' : 'transparent',
                     backdropFilter: scrolled ? 'blur(12px)' : 'none',
@@ -81,7 +81,7 @@ const Header = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-                <Link to="/" className="relative z-[70] group" onClick={() => handleNavClick('/')}>
+                <Link to="/" className="relative z-70 group" onClick={() => handleNavClick('/')}>
                     <div className="flex items-center gap-4">
                         <div className="relative">
                             <div className="absolute inset-0 bg-[#FFCC00] blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
@@ -110,7 +110,7 @@ const Header = () => {
                 </nav>
 
                 {/* Desktop CTA */}
-                <button className="hidden lg:flex items-center justify-center gap-2 px-4 py-3 bg-transparent border border-[#FFCC00] rounded-none relative group overflow-hidden cursor-not-allowed min-w-[200px]">
+                <button className="hidden lg:flex items-center justify-center gap-2 px-4 py-3 bg-transparent border border-[#FFCC00] rounded-none relative group overflow-hidden cursor-not-allowed min-w-50">
                     <span className="relative z-10 font-black text-sm uppercase tracking-widest text-[#FFCC00] transition-colors duration-300 transform scale-x-110 group-hover:opacity-0">
                         Join Us
                     </span>
@@ -118,7 +118,7 @@ const Header = () => {
                     {/* Police Tape Hover Effect */}
                     <div className="absolute inset-0 bg-[#FFCC00] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 overflow-hidden flex flex-col justify-center">
                         {/* Top Stripes */}
-                        <div className="absolute top-0 left-0 right-0 h-[6px] w-full z-10"
+                        <div className="absolute top-0 left-0 right-0 h-1.5 w-full z-10"
                             style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 4px, #FFCC00 4px, #FFCC00 8px)' }} />
 
                         {/* Center Scrolling Text */}
@@ -130,18 +130,18 @@ const Header = () => {
                         </div>
 
                         {/* Bottom Stripes */}
-                        <div className="absolute bottom-0 left-0 right-0 h-[6px] w-full z-10"
+                        <div className="absolute bottom-0 left-0 right-0 h-1.5 w-full z-10"
                             style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 4px, #FFCC00 4px, #FFCC00 8px)' }} />
                     </div>
                 </button>
 
                 <button
-                    className="lg:hidden relative z-[70] w-10 h-10 flex flex-col justify-center items-center gap-1.5 group"
+                    className="lg:hidden relative z-70 w-10 h-10 flex flex-col justify-center items-center gap-1.5 group"
                     onClick={() => setMenuOpen(!menuOpen)}
                 >
-                    <motion.div animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0 }} className="w-8 h-[2px] bg-[#FFCC00] origin-center transition-transform" />
-                    <motion.div animate={{ opacity: menuOpen ? 0 : 1 }} className="w-8 h-[2px] bg-[#FFCC00] transition-opacity" />
-                    <motion.div animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -8 : 0 }} className="w-8 h-[2px] bg-[#FFCC00] origin-center transition-transform" />
+                    <motion.div animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0 }} className="w-8 h-0.5 bg-[#FFCC00] origin-center transition-transform" />
+                    <motion.div animate={{ opacity: menuOpen ? 0 : 1 }} className="w-8 h-0.5 bg-[#FFCC00] transition-opacity" />
+                    <motion.div animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -8 : 0 }} className="w-8 h-0.5 bg-[#FFCC00] origin-center transition-transform" />
                 </button>
             </motion.header>
 
@@ -169,7 +169,7 @@ const Header = () => {
                                     </motion.span>
                                 </Link>
                             ))}
-                            <button className="mt-8 px-14 py-1.5 bg-transparent border border-[#FFCC00] rounded-none relative group overflow-hidden cursor-not-allowed min-w-[180px]">
+                            <button className="mt-8 px-14 py-1.5 bg-transparent border border-[#FFCC00] rounded-none relative group overflow-hidden cursor-not-allowed min-w-45">
                                 <span className="relative z-10 font-black text-sm uppercase tracking-widest text-[#FFCC00] transition-colors duration-300 transform scale-x-110 group-hover:opacity-0">
                                     Join Us
                                 </span>
@@ -177,7 +177,7 @@ const Header = () => {
                                 {/* Police Tape Hover Effect */}
                                 <div className="absolute inset-0 bg-[#FFCC00] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 overflow-hidden flex flex-col justify-center">
                                     {/* Top Stripes */}
-                                    <div className="absolute top-0 left-0 right-0 h-[6px] w-full z-10"
+                                    <div className="absolute top-0 left-0 right-0 h-1.5 w-full z-10"
                                         style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 4px, #FFCC00 4px, #FFCC00 8px)' }} />
 
                                     {/* Center Scrolling Text */}
@@ -189,7 +189,7 @@ const Header = () => {
                                     </div>
 
                                     {/* Bottom Stripes */}
-                                    <div className="absolute bottom-0 left-0 right-0 h-[6px] w-full z-10"
+                                    <div className="absolute bottom-0 left-0 right-0 h-1.5 w-full z-10"
                                         style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 4px, #FFCC00 4px, #FFCC00 8px)' }} />
                                 </div>
                             </button>

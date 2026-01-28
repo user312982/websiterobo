@@ -57,7 +57,7 @@ const Hero = () => {
                         transition={{ duration: 0.8 }}
                         className="flex items-center gap-4 mb-6"
                     >
-                        <div className="h-[2px] w-12 bg-[#FFCC00]"></div>
+                        <div className="h-0.5 w-12 bg-[#FFCC00]"></div>
                         <span className="text-[#FFCC00] font-mono text-sm tracking-widest uppercase">Pusat Riset Robotika</span>
                     </motion.div>
 
@@ -68,7 +68,7 @@ const Hero = () => {
                         className="text-huge font-bold text-white leading-[0.9] mb-8 tracking-tight"
                     >
                         ENGINEERING <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] to-[#FFE066]">THE FUTURE</span>
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FFCC00] to-[#FFE066]">THE FUTURE</span>
                     </motion.h1>
 
                     <div className="flex flex-col md:flex-row items-start gap-12 border-t border-white/10 pt-10">
@@ -96,7 +96,7 @@ const Hero = () => {
                     onMouseLeave={handleMouseLeave}
                 >
                     <motion.div
-                        className="relative w-64 h-64 md:w-[500px] md:h-[500px]"
+                        className="relative w-64 h-64 md:w-125 md:h-125"
                         style={{
                             rotateX,
                             rotateY,

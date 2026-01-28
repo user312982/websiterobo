@@ -36,8 +36,8 @@ const GalleryPage = () => {
         <section className="min-h-screen bg-[#050806] pt-32 px-4 md:px-8 pb-20 relative overflow-hidden">
             {/* Background Elements */}
             <div className="fixed inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFCC00] opacity-[0.03] blur-[150px] rounded-full" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FFCC00] opacity-[0.02] blur-[200px] rounded-full" />
+                <div className="absolute top-0 right-0 w-125 h-125 bg-[#FFCC00] opacity-[0.03] blur-[150px] rounded-full" />
+                <div className="absolute bottom-0 left-0 w-150 h-150 bg-[#FFCC00] opacity-[0.02] blur-[200px] rounded-full" />
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
@@ -71,7 +71,7 @@ const GalleryPage = () => {
                             {item.type === 'image' && (
                                 <>
                                     {/* Abstract Placeholder Visuals (Gradients/Noise) */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-800 to-black" />
+                                    <div className="absolute inset-0 bg-linear-to-br from-neutral-900 via-neutral-800 to-black" />
                                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
 
                                     {/* Hover Overlay */}
@@ -115,7 +115,7 @@ const GalleryPage = () => {
                             {item.type === 'quote' && (
                                 <div className="absolute inset-0 flex items-center justify-center p-8 bg-[#0A0A0A] group-hover:bg-[#FFCC00] transition-colors duration-500 group">
                                     {/* Background Pattern */}
-                                    <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent" />
+                                    <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white to-transparent" />
 
                                     <div className="relative text-center">
                                         <svg className="w-8 h-8 text-[#FFCC00] group-hover:text-black mb-4 mx-auto transition-colors duration-500" fill="currentColor" viewBox="0 0 24 24">
