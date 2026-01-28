@@ -29,7 +29,7 @@ const DepartmentsNew = () => {
                                         {dept.name}
                                     </motion.h3>
                                 </div>
-                                <div className="mt-4 md:mt-0 max-w-sm text-right opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-x-4 group-hover:translate-x-0">
+                                <div className="mt-4 md:mt-0 max-w-sm text-right opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-x-4 group-hover:translate-x-0">
                                     <p className="text-[#88998C]">{dept.desc}</p>
                                 </div>
                             </motion.div>

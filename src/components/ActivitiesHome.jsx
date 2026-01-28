@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const EventsHome = () => {
+const ActivitiesHome = () => {
     // Synchronized data with EventsPage (but visualized differently)
     // Displaying only 2 main upcoming events for the homepage
-    const events = [
+    const activities = [
         {
             id: 1,
             title: "Robotics Workshop",
@@ -36,7 +36,7 @@ const EventsHome = () => {
                             Mark Your Calendar
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold text-white leading-none">
-                            UPCOMING <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] to-[#FFE066]">EVENTS</span>
+                            UPCOMING <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] to-[#FFE066]">ACTIVITIES</span>
                         </h2>
                     </motion.div>
 
@@ -46,25 +46,25 @@ const EventsHome = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <Link to="/events" className="group flex items-center gap-4 text-white hover:text-[#FFCC00] transition-colors">
-                            <span className="text-sm font-bold uppercase tracking-widest">View All Events</span>
-                            <div className="w-12 h-[1px] bg-white/30 group-hover:bg-[#FFCC00] transition-colors" />
+                        <Link to="/activities" className="group flex items-center gap-4 text-white hover:text-[#FFCC00] transition-colors">
+                            <span className="text-sm font-bold uppercase tracking-widest">View All Activities</span>
+                            <div className="w-12 h-px bg-white/30 group-hover:bg-[#FFCC00] transition-colors" />
                         </Link>
                     </motion.div>
                 </div>
 
                 {/* Horizontal Layout for Home (Distinct from Grid on Events Page) */}
                 <div className="flex flex-col md:flex-row gap-8">
-                    {events.map((event, index) => (
+                    {activities.map((activity, index) => (
                         <motion.div
-                            key={event.id}
+                            key={activity.id}
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2, duration: 0.8 }}
                             className="relative flex-1 group overflow-hidden h-[400px] border border-white/10"
                         >
-                            <div className={`absolute inset-0 w-full h-full bg-gradient-to-br ${event.placeholderColor}`}>
+                            <div className={`absolute inset-0 w-full h-full bg-gradient-to-br ${activity.placeholderColor}`}>
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
                                 <div className="absolute inset-0 flex items-center justify-center opacity-10">
                                     <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,16 +76,16 @@ const EventsHome = () => {
 
                             <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                 <span className="inline-block px-3 py-1 bg-[#FFCC00] text-black text-xs font-bold uppercase tracking-widest mb-4">
-                                    {event.category}
+                                    {activity.category}
                                 </span>
                                 <h3 className="text-3xl font-bold text-white mb-2 leading-tight">
-                                    {event.title}
+                                    {activity.title}
                                 </h3>
                                 <p className="text-[#88998C] text-sm font-mono mb-6 flex items-center gap-2">
-                                    <span>//</span> {event.date}
+                                    <span>//</span> {activity.date}
                                 </p>
 
-                                <Link to="/events" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-[#FFCC00] transition-colors">
+                                <Link to="/activities" className="inline-flex items-center gap-2 text-white/50 text-sm hover:text-[#FFCC00] transition-colors">
                                     See Details <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                                 </Link>
                             </div>
@@ -104,7 +104,7 @@ const EventsHome = () => {
                         <p className="text-[#88998C] mb-8 max-w-xs group-hover:text-black/70">
                             Discover workshops, research showcases, and community gatherings.
                         </p>
-                        <Link to="/events" className="w-12 h-12 rounded-full border border-white/20 group-hover:border-black flex items-center justify-center text-white group-hover:text-black transition-all">
+                        <Link to="/activities" className="w-12 h-12 rounded-full border border-white/20 group-hover:border-black flex items-center justify-center text-white group-hover:text-black transition-all">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </Link>
                     </motion.div>
@@ -114,4 +114,4 @@ const EventsHome = () => {
     );
 };
 
-export default EventsHome;
+export default ActivitiesHome;
