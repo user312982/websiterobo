@@ -1,187 +1,156 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
+const activities = [
+    {
+        id: 1,
+        title: "Robotics Workshop: Arduino Basics",
+        date: "Feb 15, 2026",
+        location: "Lab Robotika ITK",
+        category: "Workshop",
+        description: "Hands-on experience building your first robot with Arduino microcontrollers. Learn basic programming, sensor integration, and motor control.",
+        imageGrad: "from-neutral-800 to-neutral-900",
+    },
+    {
+        id: 2,
+        title: "KRI Region II Selection",
+        date: "Mar 10, 2026",
+        location: "Auditorium ITK",
+        category: "Competition",
+        description: "Internal team selection for the Kontes Robot Indonesia. Showcase your skills and get a chance to represent ITK at the national level.",
+        imageGrad: "from-neutral-800 to-neutral-900",
+    },
+    {
+        id: 3,
+        title: "Tech Talk: AI in Robotics",
+        date: "Mar 25, 2026",
+        location: "Zoom Meeting",
+        category: "Seminar",
+        description: "A deep dive into Computer Vision and Machine Learning applications in modern robotics, featuring industry professionals.",
+        imageGrad: "from-neutral-800 to-neutral-900",
+    },
+    {
+        id: 4,
+        title: "KRTI National 2025 Highlights",
+        date: "Nov 20, 2025",
+        location: "Yogyakarta",
+        category: "Achievement",
+        description: "Recap of our team's performance at the National Drone Competition. Celebrating our achievements and lessons learned.",
+        imageGrad: "from-neutral-800 to-neutral-900",
+    },
+    {
+        id: 5,
+        title: "Open Recruitment Gen 12",
+        date: "Aug 15, 2025",
+        location: "Campus ITK",
+        category: "Recruitment",
+        description: "Join the next generation of robotics enthusiasts. Open to all ITK students passionate about technology and innovation.",
+        imageGrad: "from-neutral-800 to-neutral-900",
+    },
+    {
+        id: 6,
+        title: "Line Tracer Competition",
+        date: "Jul 01, 2025",
+        location: "Balikpapan",
+        category: "Competition",
+        description: "Annual line follower robot competition. Put your design and programming skills to the test against teams from across the region.",
+        imageGrad: "from-neutral-800 to-neutral-900",
+    }
+];
+
 const ActivitiesPage = () => {
-    // Mock Data for Events
-    const upcomingActivities = [
-        {
-            id: 1,
-            title: "Robotics Workshop: Arduino Basics",
-            date: "Feb 15, 2026",
-            time: "09:00 AM - 12:00 PM",
-            location: "Lab Robotika ITK",
-            category: "Workshop",
-            placeholderColor: "from-[#FFCC00]/20 to-transparent" // Placeholder gradient
-        },
-        {
-            id: 2,
-            title: "KRI Region II Selection",
-            date: "Mar 10, 2026",
-            time: "08:00 AM - 05:00 PM",
-            location: "Auditorium ITK",
-            category: "Competition",
-            placeholderColor: "from-blue-500/20 to-transparent"
-        },
-        {
-            id: 3,
-            title: "Tech Talk: AI in Robotics",
-            date: "Mar 25, 2026",
-            time: "01:00 PM - 03:00 PM",
-            location: "Zoom Meeting",
-            category: "Seminar",
-            placeholderColor: "from-purple-500/20 to-transparent"
-        }
-    ];
-
-    const pastActivities = [
-        {
-            id: 101,
-            title: "KRTI National 2025",
-            date: "Nov 20, 2025",
-            desc: "Tim Asmawarman berhasil meraih juara harapan di divisi Fixed Wing.",
-            placeholderColor: "bg-[#FFCC00]/10"
-        },
-        {
-            id: 102,
-            title: "Open Recruitment Gen 12",
-            date: "Aug 15, 2025",
-            desc: "Penerimaan anggota baru angkatan 2025 dengan total pendaftar 200+ mahasiswa.",
-            placeholderColor: "bg-white/10"
-        }
-    ];
-
     return (
-        <div className="min-h-screen bg-[#020403] pt-32 pb-20 px-6 md:px-16 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-125 h-125 bg-[#FFCC00] blur-[150px] opacity-10 rounded-full pointer-events-none" />
+        <div className="min-h-screen bg-[#020403] pt-32 selection:bg-[#FFCC00] selection:text-black">
 
-            <div className="max-w-7xl mx-auto relative z-10">
-                {/* Hero / Page Title */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-20 text-center"
-                >
-                    <span className="text-[#FFCC00] font-bold tracking-widest uppercase mb-4 block">Calendar & Updates</span>
-                    <h1 className="text-5xl md:text-7xl font-rajdhani font-bold text-white mb-6">
-                        OUR <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FFCC00] to-[#FFE066]">ACTIVITIES</span>
-                    </h1>
-                    <p className="text-[#88998C] text-lg max-w-2xl mx-auto leading-relaxed">
-                        Join us in our upcoming workshops, competitions, and gatherings.
-                        Don't miss the chance to learn and innovate with us.
-                    </p>
-                </motion.div>
+            <div className="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_450px] gap-0 border-t border-white/10">
 
-                {/* Upcoming Activities Grid */}
-                <div className="mb-32">
-                    <div className="flex items-center justify-between mb-12 border-b border-[#FFCC00]/20 pb-4">
-                        <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
-                            Upcoming Activities
-                        </h2>
-                        <div className="hidden md:flex gap-4">
-                            <button className="px-4 py-2 border border-[#FFCC00] text-[#FFCC00] text-sm uppercase tracking-widest hover:bg-[#FFCC00] hover:text-black transition-colors">
-                                View Calendar
-                            </button>
-                        </div>
-                    </div>
+                {/* LEFT CONTENT (Dynamic Feed) */}
+                <div className="border-r border-white/10 p-6 md:p-16 flex flex-col gap-24 md:gap-40">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h1 className="text-6xl md:text-8xl font-bold text-white leading-none tracking-tight mb-8">
+                            LATEST<br />
+                            <span className="text-[#FFCC00]">ACTIVITIES</span>
+                        </h1>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {upcomingActivities.map((activity, index) => (
+                    <div className="flex flex-col gap-24">
+                        {activities.map((act, index) => (
                             <motion.div
-                                key={activity.id}
-                                initial={{ opacity: 0, y: 20 }}
+                                key={act.id}
+                                initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.6 }}
-                                className="group relative bg-[#0A0C0A] border border-white/10 overflow-hidden hover:border-[#FFCC00]/50 transition-colors"
+                                transition={{ duration: 0.8, delay: 0.1 }}
+                                className="group cursor-pointer"
                             >
-                                {/* Placeholder Image Area */}
-                                <div className={`h-48 overflow-hidden relative bg-linear-to-br ${activity.placeholderColor}`}>
-                                    <div className="absolute top-4 right-4 bg-[#FFCC00] text-black text-xs font-bold px-3 py-1 uppercase tracking-wider z-10">
-                                        {activity.category}
-                                    </div>
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                                        <svg className="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
+                                {/* Large Image Block */}
+                                <div className="aspect-[16/9] bg-[#0A0A0A] relative overflow-hidden mb-8 group-hover:opacity-90 transition-opacity">
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${act.imageGrad}`} />
+                                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
                                 </div>
 
-                                {/* Content Area */}
-                                <div className="p-8 relative">
-                                    <div className="mb-4 flex items-center gap-4 text-[#88998C] text-sm border-b border-white/5 pb-4">
-                                        <div className="flex items-center gap-2">
-                                            <svg className="w-4 h-4 text-[#FFCC00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                            {activity.date}
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <svg className="w-4 h-4 text-[#FFCC00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                            {activity.time}
-                                        </div>
+                                {/* Content */}
+                                <div className="max-w-3xl">
+                                    <div className="flex items-center gap-4 text-sm font-mono text-[#88998C] mb-4 uppercase tracking-widest">
+                                        <span className="text-[#FFCC00]">{act.date}</span>
+                                        <span className="w-px h-3 bg-white/20"></span>
+                                        <span>{act.category}</span>
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-[#FFCC00] transition-colors leading-tight">
-                                        {activity.title}
-                                    </h3>
+                                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 group-hover:text-[#FFCC00] transition-colors leading-tight">
+                                        {act.title}
+                                    </h2>
 
-                                    <div className="flex items-center gap-2 text-[#88998C] text-sm mb-6">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                        {activity.location}
+                                    <p className="text-white/60 text-lg leading-relaxed max-w-2xl">
+                                        {act.description}
+                                    </p>
+
+                                    <div className="mt-8 flex items-center gap-2 text-white font-bold uppercase tracking-widest text-sm group-hover:translate-x-2 transition-transform">
+                                        Read More <span className="text-[#FFCC00]">&rarr;</span>
                                     </div>
-
-                                    <button className="w-full py-3 border border-white/20 text-white font-bold uppercase tracking-widest text-sm hover:bg-[#FFCC00] hover:text-black hover:border-[#FFCC00] transition-all duration-300">
-                                        Register Now
-                                    </button>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
                 </div>
 
-                {/* Past Activities / Highlights */}
-                <div>
-                    <h2 className="text-3xl font-bold text-white mb-12 uppercase tracking-wider text-center">
-                        Past Highlights
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        {pastActivities.map((activity) => (
-                            <motion.div
-                                key={activity.id}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="flex flex-col md:flex-row gap-6 items-center bg-[#111] p-6 rounded-lg border border-white/5"
-                            >
-                                <div className={`w-full md:w-48 h-32 overflow-hidden rounded ${activity.placeholderColor} flex items-center justify-center`}>
-                                    <svg className="w-12 h-12 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                                <div className="flex-1 text-center md:text-left">
-                                    <span className="text-[#FFCC00] text-xs font-bold uppercase tracking-widest block mb-1">{activity.date}</span>
-                                    <h3 className="text-xl font-bold text-white mb-2">{activity.title}</h3>
-                                    <p className="text-[#88998C] text-sm leading-relaxed">{activity.desc}</p>
-                                </div>
-                            </motion.div>
-                        ))}
+                {/* RIGHT SIDEBAR (Static Info) */}
+                <div className="hidden lg:block relative">
+                    <div className="sticky top-32 p-12 pr-16 h-[calc(100vh-8rem)] flex flex-col justify-between bg-[#050505]">
+                        <div>
+                            <h3 className="text-white font-bold uppercase tracking-widest mb-8 border-b border-white/10 pb-4">
+                                Info
+                            </h3>
+                            <p className="text-[#88998C] text-lg leading-relaxed mb-12">
+                                We regularly host workshops, competitions, and seminars to foster innovation in robotics. Stay updated with our latest agenda.
+                            </p>
+
+                            <h3 className="text-white font-bold uppercase tracking-widest mb-8 border-b border-white/10 pb-4">
+                                Categories
+                            </h3>
+                            <ul className="space-y-4 text-[#88998C] text-lg">
+                                <li className="hover:text-[#FFCC00] cursor-pointer transition-colors">Workshops</li>
+                                <li className="hover:text-[#FFCC00] cursor-pointer transition-colors">Competitions</li>
+                                <li className="hover:text-[#FFCC00] cursor-pointer transition-colors">Seminars</li>
+                                <li className="hover:text-[#FFCC00] cursor-pointer transition-colors">Achievements</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 className="text-white font-bold uppercase tracking-widest mb-6">
+                                Join Us?
+                            </h3>
+                            <a href="#contact" className="block w-full py-4 bg-[#FFCC00] text-black font-bold text-center uppercase tracking-widest hover:bg-white transition-colors">
+                                Become a Member
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                {/* CTA */}
-                <div className="mt-32 text-center p-12 border border-[#FFCC00]/20 bg-[#FFCC00]/5 relative overflow-hidden">
-                    {/* Authentic Police Tape Styling for CTA Border */}
-                    <div className="absolute top-0 left-0 right-0 h-2 bg-[repeating-linear-gradient(45deg,#000_0,#000_10px,#FFCC00_10px,#FFCC00_20px)]" />
-                    <div className="absolute bottom-0 left-0 right-0 h-2 bg-[repeating-linear-gradient(45deg,#000_0,#000_10px,#FFCC00_10px,#FFCC00_20px)]" />
-
-                    <h2 className="text-3xl md:text-5xl font-rajdhani font-bold text-white mb-6">
-                        Don't Miss Out
-                    </h2>
-                    <p className="text-[#88998C] text-lg max-w-xl mx-auto mb-8">
-                        Stay updated with our latest activities. Follow our Instagram for real-time announcements.
-                    </p>
-                    <a href="https://instagram.com/robotik.itk" target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-4 bg-[#FFCC00] text-black font-black tracking-widest hover:bg-white transition-colors duration-300 transform hover:-translate-y-1">
-                        FOLLOW @ROBOTIK.ITK
-                    </a>
-                </div>
             </div>
         </div>
     );
