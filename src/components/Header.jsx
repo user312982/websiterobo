@@ -45,7 +45,7 @@ const Header = () => {
     const links = [
         { name: 'Gallery', path: '/gallery' },
         { name: 'Departments', path: '/departments' },
-        { name: 'Events', path: '/events' },
+        { name: 'Activities', path: '/activities' },
         { name: 'About Us', path: '/about' }
     ];
 
