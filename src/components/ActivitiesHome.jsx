@@ -36,7 +36,7 @@ const ActivitiesHome = () => {
                             Mark Your Calendar
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold text-white leading-none">
-                            UPCOMING <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] to-[#FFE066]">ACTIVITIES</span>
+                            UPCOMING <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FFCC00] to-[#FFE066]">ACTIVITIES</span>
                         </h2>
                     </motion.div>
 
@@ -62,9 +62,9 @@ const ActivitiesHome = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2, duration: 0.8 }}
-                            className="relative flex-1 group overflow-hidden h-[400px] border border-white/10"
+                            className="relative flex-1 group overflow-hidden h-100 border border-white/10"
                         >
-                            <div className={`absolute inset-0 w-full h-full bg-gradient-to-br ${activity.placeholderColor}`}>
+                            <div className={`absolute inset-0 w-full h-full bg-linear-to-br ${activity.placeholderColor}`}>
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
                                 <div className="absolute inset-0 flex items-center justify-center opacity-10">
                                     <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,7 +72,7 @@ const ActivitiesHome = () => {
                                     </svg>
                                 </div>
                             </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
 
                             <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                 <span className="inline-block px-3 py-1 bg-[#FFCC00] text-black text-xs font-bold uppercase tracking-widest mb-4">

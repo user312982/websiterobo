@@ -70,7 +70,7 @@ function App() {
 
             {/* Global Grain/Noise Texture - Optimized (Static Image instead of SVG Filter) */}
             <div
-                className="fixed inset-0 pointer-events-none opacity-[0.05] z-[9998] mix-blend-overlay"
+                className="fixed inset-0 pointer-events-none opacity-[0.05] z-9998 mix-blend-overlay"
                 style={{
                     backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")`,
                     backgroundRepeat: 'repeat',

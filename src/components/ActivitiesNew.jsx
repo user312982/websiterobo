@@ -117,7 +117,7 @@ const ActivitiesNew = () => {
                                 className="group cursor-pointer font-sans"
                             >
                                 {/* Image Container */}
-                                <div className={`aspect-[16/10] rounded-3xl overflow-hidden mb-6 relative border border-[#FFCC00]/30 group-hover:border-[#FFCC00] transition-colors duration-500 shadow-[0_0_15px_rgba(255,204,0,0.05)] group-hover:shadow-[0_0_30px_rgba(255,204,0,0.3)]`}>
+                                <div className={`aspect-16/10 rounded-3xl overflow-hidden mb-6 relative border border-[#FFCC00]/30 group-hover:border-[#FFCC00] transition-colors duration-500 shadow-[0_0_15px_rgba(255,204,0,0.05)] group-hover:shadow-[0_0_30px_rgba(255,204,0,0.3)]`}>
 
                                     {/* Conditional Image or Blurred Placeholder */}
                                     {act.image ? (
@@ -133,7 +133,7 @@ const ActivitiesNew = () => {
                                             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
 
                                             {/* Centered glow for depth (Neutral) */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                                            <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                                         </div>
                                     )}
 
