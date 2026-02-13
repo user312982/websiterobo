@@ -45,7 +45,8 @@ const ActivitiesHome = () => {
     return (
         <section className="py-24 md:py-40 px-4 md:px-16 bg-[#020403] relative border-t border-white/5 overflow-hidden">
             {/* Background Texture */}
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay pointer-events-none" />
+            {/* Background Texture - REMOVED for performance (already global) */}
+            {/* <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay pointer-events-none" /> */}
 
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Header Section */}
@@ -89,7 +90,7 @@ const ActivitiesHome = () => {
                                     <div className="bg-[#0A0A0A] border border-white/10 p-8 md:p-10 relative overflow-hidden h-full md:h-[320px] flex flex-col justify-between transition-colors duration-300 hover:bg-[#0F0F0F] hover:border-[#FFCC00]/50">
 
                                         {/* Top Tape decoration (visual only) */}
-                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-8 bg-white/5 rotate-1 backdrop-blur-sm border border-white/5 opacity-50" />
+                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-8 bg-white/5 rotate-1 border border-white/5 opacity-50" />
 
                                         {/* Content */}
                                         <div className="flex justify-between items-start">

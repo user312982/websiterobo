@@ -50,12 +50,6 @@ const NotFoundPage = () => {
                     >
                         Back to Home
                     </Link>
-                    <Link
-                        to="/departments"
-                        className="bg-transparent border-2 border-[#FFCC00] text-[#FFCC00] px-8 py-3 rounded-lg font-semibold hover:bg-[#FFCC00] hover:text-black transition-colors"
-                    >
-                        View Departments
-                    </Link>
                 </motion.div>
 
                 {/* Decorative Element */}

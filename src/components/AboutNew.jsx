@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const AboutNew = () => {
     return (
-        <section id="about" className="py-40 px-8 md:px-16 bg-[#020403]">
+        <section id="about" className="relative z-20 py-40 px-8 md:px-16 bg-[#020403]">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -23,20 +23,20 @@ const AboutNew = () => {
 
                     <div>
                         <p className="text-[#F0F2F0] text-xl leading-relaxed mb-8">
-                            Robotic ITK isn't just about building machines. It's about crafting intelligence. Since 2014, we've been the breeding ground for the next generation of technological leaders in Kalimantan.
+                            UKM Robotik ITK was born from the collective consciousness of Kalimantan Institute of Technology students regarding the importance of the young generation's role in mastering future technologies. As a concrete response to improve the quality of human resources in the field of robotics, this organization was officially established on November 11, 2019.
                         </p>
                         <p className="text-[#88998C] text-lg leading-relaxed mb-8">
                             Our mission is simple: To demystify complex robotics and create tangible solutions that impact the real world. From deep-sea exploration prototypes to autonomous drones.
                         </p>
 
                         <div className="flex gap-4">
-                            <div className="px-6 py-4 glass-panel rounded-lg">
+                            <div className="px-6 py-4 glass-panel rounded-lg flex-1">
                                 <span className="block text-[#FFCC00] font-bold text-xl mb-1">Vision</span>
-                                <span className="text-sm text-[#88998C]">World-class innovation hub</span>
+                                <span className="text-sm text-[#88998C]">To realize UKM Robotik ITK as a center for research and development of science and technology in the field of robotics at ITK.</span>
                             </div>
-                            <div className="px-6 py-4 glass-panel rounded-lg">
+                            <div className="px-6 py-4 glass-panel rounded-lg flex-1">
                                 <span className="block text-[#FFCC00] font-bold text-xl mb-1">Mission</span>
-                                <span className="text-sm text-[#88998C]">Research, Compete, Educate</span>
+                                <span className="text-sm text-[#88998C]">To cultivate committed and proactive members of ROBOTIK ITK, grounded in faith in God Almighty.</span>
                             </div>
                         </div>
 
