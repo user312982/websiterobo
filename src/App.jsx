@@ -12,13 +12,13 @@ import Cursor from './components/Cursor';
 import Loader from './components/Loader';
 import ScrollToTop from './components/ScrollToTop';
 import LoadingSpinner from './components/LoadingSpinner';
+import EasterEgg from './components/EasterEgg';
 
 // Lazy Load Pages for Performance
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const DepartmentsPage = lazy(() => import('./pages/DepartmentsPage'));
 const DepartmentDetail = lazy(() => import('./pages/DepartmentDetail'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ActivitiesPage = lazy(() => import('./pages/ActivitiesPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
                     {loading && <Loader onLoadingComplete={() => setLoading(false)} />}
                 </AnimatePresence>
 
-                <Cursor />
+                <EasterEgg />
 
                 {/* Global Grain/Noise Texture */}
                 <div className="noise-overlay" />
@@ -68,7 +68,7 @@ function App() {
                                 <main className="relative z-10">
                                     <Hero />
                                     <AboutNew />
-                                    <ActivitiesHome />
+                                    {/* <ActivitiesHome /> */}
                                     <DepartmentsNew />
                                 </main>
                             } />
@@ -76,7 +76,7 @@ function App() {
                             <Route path="/departments" element={<DepartmentsPage />} />
                             <Route path="/department/:id" element={<DepartmentDetail />} />
                             <Route path="/about" element={<AboutPage />} />
-                            <Route path="/activities" element={<ActivitiesPage />} />
+                            <Route path="/activities" element={<NotFoundPage />} />
                             <Route path="*" element={<NotFoundPage />} />
                         </Routes>
                     </Suspense>

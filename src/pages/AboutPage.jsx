@@ -1,6 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ketuaImg from '../photos/ketua.JPG';
+import wakilImg from '../photos/wakil.JPG';
+import sekretarisImg from '../photos/sekretaris.jpeg';
+import bendaharaImg from '../photos/bendahara.jpeg';
+import aboutIMG from '../assets/image/about/about.jpeg';
 
 const AboutPage = () => {
     return (
@@ -16,7 +21,7 @@ const AboutPage = () => {
                     transition={{ duration: 0.8 }}
                     className="mb-20 text-center"
                 >
-                    <span className="text-[#FFCC00] font-bold tracking-widest uppercase mb-4 block">Est. 2014</span>
+                    <span className="text-[#FFCC00] font-bold tracking-widest uppercase mb-4 block">Est. 2019</span>
                     <h1 className="text-5xl md:text-7xl font-rajdhani font-bold text-white mb-6">
                         ROBOTIK <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] to-[#FFE066]">ITK</span>
                     </h1>
@@ -38,10 +43,10 @@ const AboutPage = () => {
                             History
                         </h2>
                         <p className="text-[#F0F2F0] leading-loose mb-6">
-                            Unit Kegiatan Mahasiswa (UKM) Robotik di Institut Teknologi Kalimantan (ITK) bermula dari semangat mahasiswa untuk mengembangkan minat dan bakat di bidang teknologi, khususnya robotika. Sejak berdirinya ITK pada tahun 2014, komunitas robotika telah menjadi wadah utama bagi mahasiswa teknik untuk berinovasi.
+                            UKM Robotik ITK was born from the collective consciousness of Kalimantan Institute of Technology students regarding the importance of the young generation's role in mastering future technologies. As a concrete response to improve the quality of human resources in the field of robotics, this organization was officially established on November 11, 2019.
                         </p>
                         <p className="text-[#88998C] leading-loose">
-                            Kami terus berkembang menjadi salah satu UKM paling berprestasi di ITK, dengan fokus pada pengembangan teknologi tepat guna dan kompetisi robotika nasional seperti Kontes Robot Indonesia (KRI) dan Kontes Robot Terbang Indonesia (KRTI).
+                            Since its inception, UKM Robotik ITK was not only designed as a gathering place but as a strategic platform for students to explore, innovate, and develop their talents. Starting from the spirit to contribute to the nation's technological advancement, UKM Robotik ITK has now grown into a home for young innovators to achieve greatness and create tangible works.
                         </p>
                     </motion.div>
                     <motion.div
@@ -53,159 +58,36 @@ const AboutPage = () => {
                     >
                         {/* Placeholder for history - SVG Icon */}
                         <div className="absolute inset-0 bg-[#FFCC00]/5 flex items-center justify-center">
-                            <svg className="w-32 h-32 text-[#FFCC00]/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="font-rajdhani font-bold text-9xl text-[#FFCC00]/10 mix-blend-overlay">2014</span>
+                            <img
+                                src={aboutIMG}
+                                alt="Ketua"
+                                className="w-full h-full object-cover"
+                                onError={(e) => {
+                                    e.target.style.display = 'none';
+                                    e.target.nextElementSibling.style.display = 'flex';
+                                }}
+                            />
                         </div>
                     </motion.div>
                 </div>
 
-                {/* Achievement Gallery */}
-                <div className="mb-32">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl font-bold text-center text-white mb-16 uppercase tracking-wider"
-                    >
-                        Our Achievements
-                    </motion.h2>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <motion.div whileHover={{ y: -5 }} className="bg-[#111] p-6 border border-white/10 rounded-lg text-center">
-                            <div className="text-4xl font-bold text-[#FFCC00] mb-2">2018</div>
-                            <h3 className="text-white font-bold mb-2">Finalis KRTI</h3>
-                            <p className="text-sm text-[#88998C]">Divisi Racing Plane & VTOL</p>
-                        </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-[#111] p-6 border border-white/10 rounded-lg text-center">
-                            <div className="text-4xl font-bold text-[#FFCC00] mb-2">2019</div>
-                            <h3 className="text-white font-bold mb-2">Peserta Nasional</h3>
-                            <p className="text-sm text-[#88998C]">Kontes Robot Terbang Indonesia</p>
-                        </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-[#111] p-6 border border-white/10 rounded-lg text-center">
-                            <div className="text-4xl font-bold text-[#FFCC00] mb-2">2020</div>
-                            <h3 className="text-white font-bold mb-2">Juara Harapan</h3>
-                            <p className="text-sm text-[#88998C]">KRI Wilayah II</p>
-                        </motion.div>
-                        <motion.div whileHover={{ y: -5 }} className="bg-[#111] p-6 border border-white/10 rounded-lg text-center">
-                            <div className="text-4xl font-bold text-[#FFCC00] mb-2">2023</div>
-                            <h3 className="text-white font-bold mb-2">Best Design</h3>
-                            <p className="text-sm text-[#88998C]">Kontes Robot SAR Indonesia</p>
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Divisions / Asmawarman Section */}
-                <div className="mb-32">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl font-bold text-center text-white mb-16 uppercase tracking-wider"
-                    >
-                        Our Divisions & Teams
-                    </motion.h2>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Card 1: Asmawarman (Flying Robot) */}
-                        <motion.div
-                            whileHover={{ y: -10 }}
-                            className="bg-[#0A0C0A] border border-[#FFCC00]/20 p-8 rounded-xl relative overflow-hidden group"
-                        >
-                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                                <svg className="w-24 h-24 text-[#FFCC00]" fill="currentColor" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" /></svg>
-                            </div>
-                            <h3 className="text-xl font-bold text-[#FFCC00] mb-4">ASMAWARMAN</h3>
-                            <p className="text-[#88998C] text-sm mb-6">
-                                Tim spesialis Robot Terbang (UAV/Drone). Berfokus pada divisi Fixed Wing, Racing Plane, dan VTOL untuk kompetisi KRTI. Menjadi ujung tombak inovasi kedirgantaraan ITK.
-                            </p>
-                            <div className="h-1 w-12 bg-[#FFCC00] rounded-full" />
-                        </motion.div>
-
-                        {/* Card 2: KRI Teams (Wheeled/Legged) */}
-                        <motion.div
-                            whileHover={{ y: -10 }}
-                            className="bg-[#0A0C0A] border border-[#FFCC00]/20 p-8 rounded-xl relative overflow-hidden group"
-                        >
-                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                                <svg className="w-24 h-24 text-[#FFCC00]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-4.41-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.22-3.22-7.51-7.51 3.22 3.22 7.51z" /></svg>
-                            </div>
-                            <h3 className="text-xl font-bold text-[#FFCC00] mb-4">KRI DIVISION</h3>
-                            <p className="text-[#88998C] text-sm mb-6">
-                                Fokus pada Robot SAR, Robot Sepak Bola Beroda/Humanoid, dan Robot Seni Tari. Mengikuti ajang bergengsi Kontes Robot Indonesia setiap tahunnya.
-                            </p>
-                            <div className="h-1 w-12 bg-[#FFCC00] rounded-full" />
-                        </motion.div>
-
-                        {/* Card 3: Research & Tech */}
-                        <motion.div
-                            whileHover={{ y: -10 }}
-                            className="bg-[#0A0C0A] border border-[#FFCC00]/20 p-8 rounded-xl relative overflow-hidden group"
-                        >
-                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                                <svg className="w-24 h-24 text-[#FFCC00]" fill="currentColor" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" /></svg>
-                            </div>
-                            <h3 className="text-xl font-bold text-[#FFCC00] mb-4">R&D TEAM</h3>
-                            <p className="text-[#88998C] text-sm mb-6">
-                                Departemen Penelitian dan Pengembangan yang menciptakan teknologi baru, mengadakan workshop, dan pelatihan untuk regenerasi anggota.
-                            </p>
-                            <div className="h-1 w-12 bg-[#FFCC00] rounded-full" />
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Activities Section */}
-                <div className="mb-32">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl font-bold text-center text-white mb-16 uppercase tracking-wider"
-                    >
-                        What We Do
-                    </motion.h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div className="bg-[#111] p-8 rounded-lg border border-white/5">
-                            <h3 className="text-xl font-bold text-white mb-4">Workshops & Training</h3>
-                            <p className="text-[#88998C] mb-4">
-                                Kami rutin mengadakan pelatihan internal dan eksternal, seperti Workshop "Line Follower Using Arduino" untuk mengenalkan dasar-dasar robotika kepada mahasiswa baru dan masyarakat umum.
-                            </p>
-                            <ul className="list-disc list-inside text-[#88998C] text-sm">
-                                <li>Basic Electronics & Microcontroller</li>
-                                <li>Mechanics & 3D Design</li>
-                                <li>Programming (C++, Python)</li>
-                            </ul>
-                        </div>
-                        <div className="bg-[#111] p-8 rounded-lg border border-white/5">
-                            <h3 className="text-xl font-bold text-white mb-4">Competition & Research</h3>
-                            <p className="text-[#88998C] mb-4">
-                                Kegiatan inti kami adalah riset untuk kompetisi nasional. Anggota tim menghabiskan waktu berbulan-bulan untuk mendesain, merakit, dan memprogram robot yang tangguh.
-                            </p>
-                            <ul className="list-disc list-inside text-[#88998C] text-sm">
-                                <li>Kontes Robot Indonesia (KRI)</li>
-                                <li>Kontes Robot Terbang Indonesia (KRTI)</li>
-                                <li>Innovation Challenges</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
 
                 {/* Vision Mission */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                     <div className="p-8 border-l-2 border-[#FFCC00] bg-[#FFCC00]/5">
                         <h3 className="text-2xl font-bold text-white mb-4">VISION</h3>
                         <p className="text-[#F0F2F0]">
-                            Menjadi pusat unggulan pengembangan teknologi robotika di Kalimantan yang inovatif, kompetitif, dan berkontribusi nyata bagi masyarakat dan bangsa.
+                            To realize UKM Robotik ITK as a center for research and development of science and technology in the field of robotics at the Kalimantan Institute of Technology.
                         </p>
                     </div>
                     <div className="p-8 border-l-2 border-[#FFCC00] bg-[#FFCC00]/5">
                         <h3 className="text-2xl font-bold text-white mb-4">MISSION</h3>
                         <ul className="text-[#F0F2F0] list-disc list-inside space-y-2">
-                            <li>Mengembangkan potensi mahasiswa di bidang teknologi robotika.</li>
-                            <li>Berpartisipasi aktif dan berprestasi dalam kompetisi tingkat nasional dan internasional.</li>
-                            <li>Melakukan riset dan pengabdian masyarakat berbasis teknologi tepat guna.</li>
+                            <li>To cultivate committed and proactive members of ROBOTIK ITK, grounded in faith in God Almighty.</li>
+                            <li>To foster a fighting spirit to achieve achievements for the organization and the ITK alma mater.</li>
+                            <li>To shape ROBOTIK ITK members into creative and innovative students.</li>
+                            <li>To integrate SPECTA values into science and technology development activities.</li>
+
                         </ul>
                     </div>
                 </div>
@@ -217,21 +99,70 @@ const AboutPage = () => {
                     </h2>
                     <div className="inline-block p-8 border border-[#FFCC00]/30 rounded-lg bg-[#FFCC00]/5 max-w-2xl">
                         <p className="text-[#88998C] italic">
-                            "Struktur organisasi kami dirancang untuk efisiensi dan inovasi."
+                            "Our organizational structure is designed for efficiency and innovation."
                         </p>
-                        <div className="mt-6 grid grid-cols-3 gap-4 text-sm">
+                        <div className="mt-6 grid grid-cols-4 gap-4 text-sm">
                             <div className="flex flex-col items-center">
-                                <div className="w-16 h-16 bg-[#222] rounded-full mb-2 flex items-center justify-center text-[#FFCC00] font-bold">K</div>
+                                <div className="w-24 h-24 bg-[#222] rounded-full mb-3 overflow-hidden border-2 border-[#FFCC00]/30">
+                                    <img
+                                        src={ketuaImg}
+                                        alt="Ketua"
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            e.target.nextElementSibling.style.display = 'flex';
+                                        }}
+                                    />
+                                    <div className="w-full h-full hidden items-center justify-center text-[#FFCC00] font-bold text-2xl">K</div>
+                                </div>
                                 <span className="text-white font-bold">Ketua</span>
                             </div>
                             <div className="flex flex-col items-center">
-                                <div className="w-16 h-16 bg-[#222] rounded-full mb-2 flex items-center justify-center text-[#FFCC00] font-bold">W</div>
+                                <div className="w-24 h-24 bg-[#222] rounded-full mb-3 overflow-hidden border-2 border-[#FFCC00]/30">
+                                    <img
+                                        src={wakilImg}
+                                        alt="Wakil Ketua"
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            e.target.nextElementSibling.style.display = 'flex';
+                                        }}
+                                    />
+                                    <div className="w-full h-full hidden items-center justify-center text-[#FFCC00] font-bold text-2xl">W</div>
+                                </div>
                                 <span className="text-white font-bold">Wakil</span>
                             </div>
                             <div className="flex flex-col items-center">
-                                <div className="w-16 h-16 bg-[#222] rounded-full mb-2 flex items-center justify-center text-[#FFCC00] font-bold">S</div>
+                                <div className="w-24 h-24 bg-[#222] rounded-full mb-3 overflow-hidden border-2 border-[#FFCC00]/30">
+                                    <img
+                                        src={sekretarisImg}
+                                        alt="Sekretaris"
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            e.target.nextElementSibling.style.display = 'flex';
+                                        }}
+                                    />
+                                    <div className="w-full h-full hidden items-center justify-center text-[#FFCC00] font-bold text-2xl">S</div>
+                                </div>
                                 <span className="text-white font-bold">Sekretaris</span>
                             </div>
+                            <div className="flex flex-col items-center">
+                                <div className="w-24 h-24 bg-[#222] rounded-full mb-3 overflow-hidden border-2 border-[#FFCC00]/30">
+                                    <img
+                                        src={bendaharaImg}
+                                        alt="Bendahara"
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            e.target.nextElementSibling.style.display = 'flex';
+                                        }}
+                                    />
+                                    <div className="w-full h-full hidden items-center justify-center text-[#FFCC00] font-bold text-2xl">B</div>
+                                </div>
+                                <span className="text-white font-bold">Bendahara</span>
+                            </div>
+
                         </div>
                     </div>
                 </div>

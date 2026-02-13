@@ -52,7 +52,9 @@ h6 {
 
 .glass-panel {
     background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(5px); -- Heavy operation */
+    backdrop-filter: blur(2px);
+    /* Lighter */
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -68,24 +70,20 @@ h6 {
     color: black;
 }
 
-/* Global Noise/Grain Texture Overlay */
+/* Global Noise/Grain Texture Overlay - OPTIMIZED */
 .noise-overlay {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    opacity: 0.05;
+    opacity: 0.04;
+    /* Slightly increased opacity for visibility */
     z-index: var(--z-noise);
-    mix-blend-mode: overlay;
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    /* Use a simple static noise image instead of a heavy SVG filter */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 100px 100px;
+    mix-blend-mode: overlay;
 }
-
-/* TODO: Replace with local static asset for better performance:
-   1. Download noise.svg or create noise.png
-   2. Place in /public/assets/
-   3. Update url to: url("/assets/noise.png")
-*/
 
 /* Subtle Cursor Glow - refined */
 .cursor-glow {
@@ -101,8 +99,13 @@ h6 {
 
 /* Animations */
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .animate-marquee {
@@ -110,8 +113,13 @@ h6 {
 }
 
 @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .animate-spin-slow {

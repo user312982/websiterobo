@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
 import Logo from '/src/logo/logo.webp';
-import HeroBackground3D from './HeroBackground3D';
+
+// Lazy load the 3D background to reduce initial bundle size and main thread blocking
+const HeroBackground3D = React.lazy(() => import('./HeroBackground3D'));
 
 const Hero = () => {
     const { scrollY } = useScroll();
-    const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-    const logoY = useTransform(scrollY, [0, 500], [0, 100]);
+    const y1 = useTransform(scrollY, [0, 100], [0, 200]);
+    const logoY = useTransform(scrollY, [0, 100], [0, 100]);
 
     // Fade to black overlay opacity based on scroll
     const overlayOpacity = useTransform(scrollY, [0, window.innerHeight], [0, 0.9]);
@@ -41,8 +43,10 @@ const Hero = () => {
     return (
         <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden perspective-[1000px]">
             {/* Alive Background Elements */}
-            {/* 3D Background */}
-            <HeroBackground3D />
+            {/* 3D Background - Lazy Loaded */}
+            <Suspense fallback={<div className="absolute inset-0 z-0 bg-black" />}>
+                <HeroBackground3D />
+            </Suspense>
 
 
             <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-4 items-center">
@@ -58,7 +62,7 @@ const Hero = () => {
                         className="flex items-center gap-4 mb-6"
                     >
                         <div className="h-0.5 w-12 bg-[#FFCC00]"></div>
-                        <span className="text-[#FFCC00] font-mono text-sm tracking-widest uppercase">Pusat Riset Robotika</span>
+                        <span className="text-[#FFCC00] font-mono text-sm tracking-widest uppercase">UKM ROBOTIKA ITK</span>
                     </motion.div>
 
                     <motion.h1
@@ -67,7 +71,7 @@ const Hero = () => {
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-huge font-bold text-white leading-[0.9] mb-8 tracking-tight"
                     >
-                        ENGINEERING <br />
+                        INNOVATING <br />
                         <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FFCC00] to-[#FFE066]">THE FUTURE</span>
                     </motion.h1>
 
@@ -79,7 +83,7 @@ const Hero = () => {
                             className="max-w-md"
                         >
                             <p className="text-[#88998C] text-lg leading-relaxed">
-                                We are Robotic ITK. A collective of engineers, designers, and innovators pushing the boundaries of autonomous systems.
+                                The official Student Activity Unit for Robotics at Institut Teknologi Kalimantan. A hub for creativity, research, and technological competitions.
                             </p>
                         </motion.div>
                     </div>
@@ -91,7 +95,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                     animate={{ opacity: 1, scale: 1, rotate: 0 }}
                     transition={{ duration: 1.2, delay: 0.4, type: "spring" }}
-                    style={{ y: logoY }}
+                    style={{ y: logoY, willChange: 'transform' }}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
                 >

@@ -69,8 +69,8 @@ const DepartmentsPage = () => {
                                     {/* Footer Stats - Clean */}
                                     <div className="border-t border-white/5 pt-6 flex justify-between items-center text-xs font-mono text-[#88998C]">
                                         <span className="group-hover:text-white transition-colors">{dept.stats.members} Members</span>
-                                        <span className="w-1 h-1 bg-[#FFCC00] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        <span className="group-hover:text-white transition-colors">{dept.stats.projects} Projects</span>
+                                        {/* <span className="w-1 h-1 bg-[#FFCC00] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <span className="group-hover:text-white transition-colors">{dept.stats.projects} Projects</span> */}
                                     </div>
                                 </div>
                             </motion.div>

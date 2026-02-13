@@ -81,7 +81,25 @@ const Header = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-                <Link to="/" className="relative z-70 group" onClick={() => handleNavClick('/')}>
+                <Link
+                    to="/"
+                    className="relative z-70 group"
+                    onClick={(e) => {
+                        handleNavClick('/');
+                        // Easter Egg Trigger: 5 rapid clicks
+                        const now = Date.now();
+                        const clicks = window.logoClickCount || [];
+                        // Filter clicks from last 2 seconds
+                        const recentClicks = clicks.filter(t => now - t < 2000);
+                        recentClicks.push(now);
+                        window.logoClickCount = recentClicks;
+
+                        if (recentClicks.length >= 5) {
+                            window.dispatchEvent(new CustomEvent('trigger-love'));
+                            window.logoClickCount = []; // Reset
+                        }
+                    }}
+                >
                     <div className="flex items-center gap-4">
                         <div className="relative">
                             <div className="absolute inset-0 bg-[#FFCC00] blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
@@ -96,17 +114,36 @@ const Header = () => {
                 </Link>
 
                 <nav className="hidden lg:flex items-center gap-1">
-                    {links.map((link, i) => (
-                        <Link
-                            key={i}
-                            to={link.path}
-                            onClick={() => handleNavClick(link.path)}
-                            className={`relative px-6 py-2 text-sm uppercase tracking-widest transition-all duration-300 group overflow-hidden rounded-full ${scrolled ? 'text-white hover:text-black' : 'text-[#88998C] hover:text-black'}`}
-                        >
-                            <span className="relative z-10 font-bold">{link.name}</span>
-                            <span className="absolute inset-0 bg-[#FFCC00] transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
-                        </Link>
-                    ))}
+                    {links.map((link, i) => {
+                        if (link.name === 'Activities') {
+                            return (
+                                <div key={i} className="relative group overflow-hidden cursor-not-allowed px-6 py-2 text-sm uppercase tracking-widest">
+                                    <span className={`relative z-10 font-bold transition-colors duration-300 ${scrolled ? 'text-white group-hover:text-white' : 'text-[#88998C] group-hover:text-[#88998C]'}`}>
+                                        {link.name}
+                                    </span>
+                                    <div className="absolute inset-0 bg-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 overflow-hidden flex items-center">
+                                        <div className="flex animate-marquee-slow whitespace-nowrap">
+                                            <span className="font-black text-xs uppercase tracking-widest text-black mx-4">Coming Soon</span>
+                                            <span className="font-black text-xs uppercase tracking-widest text-black mx-4">Coming Soon</span>
+                                            <span className="font-black text-xs uppercase tracking-widest text-black mx-4">Coming Soon</span>
+                                            <span className="font-black text-xs uppercase tracking-widest text-black mx-4">Coming Soon</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        }
+                        return (
+                            <Link
+                                key={i}
+                                to={link.path}
+                                onClick={() => handleNavClick(link.path)}
+                                className={`relative px-6 py-2 text-sm uppercase tracking-widest transition-all duration-300 group overflow-hidden rounded-full ${scrolled ? 'text-white hover:text-black' : 'text-[#88998C] hover:text-black'}`}
+                            >
+                                <span className="relative z-10 font-bold">{link.name}</span>
+                                <span className="absolute inset-0 bg-[#FFCC00] transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
+                            </Link>
+                        );
+                    })}
                 </nav>
 
                 {/* Desktop CTA */}
@@ -157,18 +194,41 @@ const Header = () => {
                         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
 
                         <div className="flex flex-col gap-8 text-center relative z-10">
-                            {links.map((link, index) => (
-                                <Link key={index} to={link.path} onClick={() => handleNavClick(link.path)}>
-                                    <motion.span
-                                        initial={{ opacity: 0, y: 50 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
-                                        className="text-4xl font-bold text-white uppercase tracking-widest hover:text-[#FFCC00] transition-colors font-rajdhani block"
-                                    >
-                                        {link.name}
-                                    </motion.span>
-                                </Link>
-                            ))}
+                            {links.map((link, index) => {
+                                if (link.name === 'Activities') {
+                                    return (
+                                        <div key={index} className="relative group overflow-hidden cursor-not-allowed py-4">
+                                            <motion.span
+                                                initial={{ opacity: 0, y: 50 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
+                                                className="text-4xl font-bold text-gray-600 uppercase tracking-widest font-rajdhani block"
+                                            >
+                                                {link.name}
+                                            </motion.span>
+                                            <div className="absolute inset-0 top-1/2 transform -translate-y-1/2 h-8 bg-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 overflow-hidden flex items-center">
+                                                <div className="flex animate-marquee-slow whitespace-nowrap">
+                                                    <span className="font-black text-sm uppercase tracking-widest text-black mx-4">Coming Soon</span>
+                                                    <span className="font-black text-sm uppercase tracking-widest text-black mx-4">Coming Soon</span>
+                                                    <span className="font-black text-sm uppercase tracking-widest text-black mx-4">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                return (
+                                    <Link key={index} to={link.path} onClick={() => handleNavClick(link.path)}>
+                                        <motion.span
+                                            initial={{ opacity: 0, y: 50 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
+                                            className="text-4xl font-bold text-white uppercase tracking-widest hover:text-[#FFCC00] transition-colors font-rajdhani block"
+                                        >
+                                            {link.name}
+                                        </motion.span>
+                                    </Link>
+                                );
+                            })}
                             <button className="mt-8 px-14 py-1.5 bg-transparent border border-[#FFCC00] rounded-none relative group overflow-hidden cursor-not-allowed min-w-45">
                                 <span className="relative z-10 font-black text-sm uppercase tracking-widest text-[#FFCC00] transition-colors duration-300 transform scale-x-110 group-hover:opacity-0">
                                     Join Us

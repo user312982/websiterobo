@@ -1,35 +1,34 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import img1 from '../assets/gallery/3.jpeg';
+import img2 from '../assets/gallery/2.jpeg';
+import img3 from '../assets/gallery/4.jpeg';
+import img4 from '../assets/gallery/1.jpeg';
+import img5 from '../assets/gallery/5.jpeg';
+import img6 from '../assets/gallery/6.jpeg';
 
 const GalleryPage = () => {
     useLayoutEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Reverted to placeholder/abstract style, removing specific Unsplash images.
-    // "Code Matrix" is now 'wide'.
     const galleryItems = [
-        { id: 1, type: 'image', size: 'large', title: 'Robotic Research', category: 'Innovation' },
-        { id: 2, type: 'image', size: 'regular', title: 'Circuit Design', category: 'Engineering' },
+        { id: 1, type: 'image', size: 'large', title: 'Robotic Research', category: 'Innovation', image: img1 },
+        { id: 2, type: 'image', size: 'regular', title: 'Circuit Design', category: 'Engineering', image: img2 },
         // Decorative Block: Typography
-        { id: 3, type: 'text', size: 'regular', title: 'EST. 2024', category: 'Legacy', content: 'EST.\n2024' },
+        { id: 3, type: 'text', size: 'regular', title: 'EST. 2019', category: 'Legacy', content: 'EST.\n2019' },
 
-        { id: 4, type: 'image', size: 'wide', title: 'Cyber Security', category: 'Software' },
-        { id: 5, type: 'image', size: 'regular', title: 'Automation', category: 'Robotics' },
-        { id: 6, type: 'image', size: 'regular', title: 'Future Tech', category: 'Competition' },
+        { id: 4, type: 'image', size: 'wide', title: 'Team Activities', category: 'Community', image: img3 },
+        { id: 5, type: 'image', size: 'regular', title: 'Competition', category: 'Robotics', image: img4 },
+        { id: 6, type: 'image', size: 'regular', title: 'Workshop', category: 'Training', image: img5 },
 
         // Decorative Block: Quote/Mission
         { id: 7, type: 'quote', size: 'large', title: 'Our Mission', category: 'Vision', content: '"Innovating the Future through Robotics."' },
 
-        { id: 8, type: 'image', size: 'wide', title: 'Team Collaboration', category: 'Community' },
-        { id: 9, type: 'image', size: 'regular', title: 'Precision', category: 'Hardware' },
-
+        { id: 8, type: 'image', size: 'wide', title: 'Team Collaboration', category: 'Community', image: img6 },
+        
         // Decorative Block: Pattern/Icon
-        { id: 10, type: 'pattern', size: 'regular', title: 'System', category: 'Core', content: 'SYSTEM' },
-
-        { id: 11, type: 'image', size: 'large', title: 'Micro Soldering', category: 'Electronics' },
-        // Made 'wide' as requested
-        { id: 12, type: 'image', size: 'wide', title: 'Code Matrix', category: 'Software' },
+        // { id: 9, type: 'pattern', size: 'regular', title: 'System', category: 'Core', content: 'SYSTEM' },
     ];
 
     return (
@@ -70,9 +69,12 @@ const GalleryPage = () => {
                             {/* RENDER BASED ON TYPE */}
                             {item.type === 'image' && (
                                 <>
-                                    {/* Abstract Placeholder Visuals (Gradients/Noise) */}
-                                    <div className="absolute inset-0 bg-linear-to-br from-neutral-900 via-neutral-800 to-black" />
-                                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+                                    {/* Actual Image */}
+                                    <img 
+                                        src={item.image} 
+                                        alt={item.title}
+                                        className="absolute inset-0 w-full h-full object-cover"
+                                    />
 
                                     {/* Hover Overlay */}
                                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -129,7 +131,7 @@ const GalleryPage = () => {
                             )}
 
                             {/* PATTERN / ICON BLOCK */}
-                            {item.type === 'pattern' && (
+                            {/* {item.type === 'pattern' && (
                                 <div className="absolute inset-0 flex items-center justify-center bg-[#111] overflow-hidden">
                                     <div className="absolute inset-0 opacity-10" style={{
                                         backgroundImage: 'radial-gradient(#FFCC00 1px, transparent 1px)',
@@ -139,7 +141,7 @@ const GalleryPage = () => {
                                         <div className="w-16 h-16 border border-white/30" />
                                     </div>
                                 </div>
-                            )}
+                            )} */}
                         </motion.div>
                     ))}
                 </div>
