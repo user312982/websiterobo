@@ -24,6 +24,7 @@ const DepartmentDetail = () => {
   // We want the end state to be: right edge of last card aligns with right edge of screen.
   // Simplifying: Move just enough to show all cards.
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+  const extraPr = useTransform(scrollYProgress, [0, 1], [0, dept.members.length > 7 ? 700 : 0]);
 
   if (!dept) {
     return (
@@ -125,8 +126,8 @@ const DepartmentDetail = () => {
           {/* Right Horizontal Scroll Panel */}
           <div className="flex-1 h-full relative overflow-hidden bg-[#020403] flex items-center">
             <motion.div
-              style={{ x }}
-              className="flex gap-12 px-16 items-center"
+              style={{ x, paddingRight: extraPr }}
+              className={`flex gap-12 px-16 items-center`}
             >
               {dept.members.map((member, index) => (
                 <motion.div
