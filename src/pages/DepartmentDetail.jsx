@@ -132,7 +132,7 @@ const DepartmentDetail = () => {
               {dept.members.map((member, index) => (
                 <motion.div
                   key={index}
-                  className="relative min-w-[300px] md:min-w-[400px] aspect-[3/4] group flex-shrink-0 perspective-[1000px]"
+                  className="relative min-w-[300px] md:min-w-[400px] aspect-[3/4] group flex-shrink-0 perspective-[2000px]"
                   initial={{ opacity: 0, x: 100 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
