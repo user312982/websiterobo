@@ -29,6 +29,7 @@ import lionCb from '../assets/image/cb/lion_cb.webp';
 import alyaCb from '../assets/image/cb/alya_cb.webp';
 import daffaCb from '../assets/image/cb/daffa_cb.webp';
 import anisaCb from '../assets/image/cb/anisa_cb.webp';
+import arinCb from '../assets/image/cb/arin_cb.webp';
 
 import aditRnd from '../assets/image/rnd/adit_rnd.webp';
 import asysyifaRnd from '../assets/image/rnd/asysyifa_rnd.webp';
@@ -106,7 +107,7 @@ export const depts = [
         stripeStyle: 'cross',
         stats: { projects: 0, members: 8, level: 'Creativity' },
         members: [
-            { name: 'Arinda Zhafira Salsabilla', role: 'Ketua Departemen', image: null },
+            { name: 'Arinda Zhafira Salsabilla', role: 'Ketua Departemen', image: arinCb },
             { name: 'Fabieyola Leq Bit', role: 'Staf Ahli', image: febieyolaCb },
             { name: 'Norbertino Eurakha', role: 'Staf Ahli', image: rakhaCb },
             { name: 'Catur Putra Romadhan', role: 'Staf Ahli', image: caturCb },

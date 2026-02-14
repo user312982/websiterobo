@@ -119,7 +119,8 @@ const DepartmentDetail = () => {
               {dept.members.map((member, index) => (
                 <motion.div
                   key={index}
-                  className="relative min-w-[280px] md:min-w-[400px] aspect-[3/4] group flex-shrink-0 perspective-[2000px]"
+                  className="relative min-w-[280px] md:min-w-[400px] aspect-[3/4] group flex-shrink-0"
+                  style={{ perspective: '2000px' }}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
@@ -129,14 +130,35 @@ const DepartmentDetail = () => {
                   }}
                 >
                   {/* Card Content with 3D Hover */}
-                  <div className="w-full h-full bg-[#111] border border-white/10 overflow-hidden relative shadow-2xl transition-transform duration-500 group-hover:rotate-y-12 group-hover:scale-105">
-                    {/* Member Image Fallback */}
-                    <div className="absolute inset-0 bg-neutral-900">
+                  <div
+                    className="w-full h-full bg-[#111] border border-white/10 overflow-hidden relative shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      WebkitTransformStyle: 'preserve-3d',
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                    }}
+                  >
+                    {/* Member Image */}
+                    <div
+                      className="absolute inset-0 bg-neutral-900"
+                      style={{
+                        transform: 'translate3d(0, 0, 0)',
+                        WebkitTransform: 'translate3d(0, 0, 0)',
+                      }}
+                    >
                       {member.image ? (
                         <img
                           src={member.image}
                           alt={member.name}
                           className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                          style={{
+                            transform: 'translate3d(0, 0, 0)',
+                            WebkitTransform: 'translate3d(0, 0, 0)',
+                            backfaceVisibility: 'hidden',
+                            WebkitBackfaceVisibility: 'hidden',
+                            imageOrientation: 'from-image',
+                          }}
                         />
                       ) : (
                         /* Neutral Glass */
