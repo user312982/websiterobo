@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import ketuaImg from '../photos/ketua.JPG';
-import wakilImg from '../photos/wakil.JPG';
-import sekretarisImg from '../photos/sekretaris.jpeg';
-import bendaharaImg from '../photos/bendahara.jpeg';
-import aboutIMG from '../assets/image/about/about.jpeg';
+import ketuaImg from '../assets/image/board/ketua.webp';
+import wakilImg from '../assets/image/board/wakil.webp';
+import sekretarisImg from '../assets/image/board/sekretaris.webp';
+import bendaharaImg from '../assets/image/board/bendahara.webp';
+import aboutIMG from '../assets/image/about/about.webp';
 
 const AboutPage = () => {
     return (
