@@ -1,39 +1,39 @@
-import ketuaImg from '../photos/ketua.JPG';
-import wakilImg from '../photos/wakil.JPG';
-import sekretarisImg from '../photos/sekretaris.jpeg';
-import bendaharaImg from '../photos/bendahara.jpeg';
+import ketuaImg from '../assets/image/board/ketua.webp';
+import wakilImg from '../assets/image/board/wakil.webp';
+import sekretarisImg from '../assets/image/board/sekretaris.webp';
+import bendaharaImg from '../assets/image/board/bendahara.webp';
 
-import yohanMecha from '../assets/image/mecha/yohan_mecha.JPG';
-import rafiMecha from '../assets/image/mecha/rafi_mecha.JPG';
-import aliMecha from '../assets/image/mecha/ali_mecha.JPG';
-import akhtarMecha from '../assets/image/mecha/akhtar_mecha.JPG';
-import kemalMecha from '../assets/image/mecha/kemal_mecha.JPG';
-import adiMecha from '../assets/image/mecha/adi_mecha.JPG';
-import aturMecha from '../assets/image/mecha/atur_mecha.JPG';
-import daffaMecha from '../assets/image/mecha/daffa_mecha.JPG';
+import yohanMecha from '../assets/image/mecha/yohan_mecha.webp';
+import rafiMecha from '../assets/image/mecha/rafi_mecha.webp';
+import aliMecha from '../assets/image/mecha/ali_mecha.webp';
+import akhtarMecha from '../assets/image/mecha/akhtar_mecha.webp';
+import kemalMecha from '../assets/image/mecha/kemal_mecha.webp';
+import adiMecha from '../assets/image/mecha/adi_mecha.webp';
+import aturMecha from '../assets/image/mecha/atur_mecha.webp';
+import daffaMecha from '../assets/image/mecha/daffa_mecha.webp';
 
-import dichaProg from '../assets/image/programming/dicha_prog.JPG';
-import iqbalProg from '../assets/image/programming/iqbal_prog.JPG';
-import celloProg from '../assets/image/programming/cello_prog.JPG';
-import razitProg from '../assets/image/programming/razit_prog.JPG';
-import andiProg from '../assets/image/programming/andi_prog.JPG';
-import ananthaProg from '../assets/image/programming/anantha_prog.JPG';
-import hasbiProg from '../assets/image/programming/hasbi_prog.JPG';
-import nabilProg from '../assets/image/programming/nabil_prog.JPG';
-import rhadytProg from '../assets/image/programming/rhadyt_prog.JPG';
+import dichaProg from '../assets/image/programming/dicha_prog.webp';
+import iqbalProg from '../assets/image/programming/iqbal_prog.webp';
+import celloProg from '../assets/image/programming/cello_prog.webp';
+import razitProg from '../assets/image/programming/razit_prog.webp';
+import andiProg from '../assets/image/programming/andi_prog.webp';
+import ananthaProg from '../assets/image/programming/anantha_prog.webp';
+import hasbiProg from '../assets/image/programming/hasbi_prog.webp';
+import nabilProg from '../assets/image/programming/nabil_prog.webp';
+import rhadytProg from '../assets/image/programming/rhadyt_prog.webp';
 
-import rakhaCb from '../assets/image/cb/rakha_cb.JPG';
-import caturCb from '../assets/image/cb/catur_cb.JPG';
-import febieyolaCb from '../assets/image/cb/febieyola_cb.JPG';
-import lionCb from '../assets/image/cb/lion_cb.JPG';
-import alyaCb from '../assets/image/cb/alya_cb.JPG';
-import daffaCb from '../assets/image/cb/daffa_cb.JPG';
-import anisaCb from '../assets/image/cb/anisa_cb.JPG';
+import rakhaCb from '../assets/image/cb/rakha_cb.webp';
+import caturCb from '../assets/image/cb/catur_cb.webp';
+import febieyolaCb from '../assets/image/cb/febieyola_cb.webp';
+import lionCb from '../assets/image/cb/lion_cb.webp';
+import alyaCb from '../assets/image/cb/alya_cb.webp';
+import daffaCb from '../assets/image/cb/daffa_cb.webp';
+import anisaCb from '../assets/image/cb/anisa_cb.webp';
 
-import aditRnd from '../assets/image/rnd/adit_rnd.JPG';
-import asysyifaRnd from '../assets/image/rnd/asysyifa_rnd.JPG';
-import ihsanRnd from '../assets/image/rnd/ihsan_rnd.JPG';
-import nastainRnd from '../assets/image/rnd/nastain_rnd.JPG';
+import aditRnd from '../assets/image/rnd/adit_rnd.webp';
+import asysyifaRnd from '../assets/image/rnd/asysyifa_rnd.webp';
+import ihsanRnd from '../assets/image/rnd/ihsan_rnd.webp';
+import nastainRnd from '../assets/image/rnd/nastain_rnd.webp';
 
 export const depts = [
     {
